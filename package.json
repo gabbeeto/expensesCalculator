@@ -1,0 +1,20 @@
+{
+  "name": "expensescalculator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "I'm making my own expenses calculator for me",
+  "main": "index.js",
+  "scripts": {
+    "webpack": "webpack --watch"
+  },
+  "keywords": [],
+  "author": "gabbeeto",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "html-webpack-plugin": "^5.5.3",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
