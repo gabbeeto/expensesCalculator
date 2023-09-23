@@ -1,1 +1,3 @@
-alert('this works');
+
+window.currentList = [];
+window.list = [currentList];

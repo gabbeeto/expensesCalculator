@@ -21,7 +21,7 @@ justify-content:center;
 align-content:center;
 }
 
-main,#leftSection, #rightSection{
+main,#leftSection, #rightSection, #listContainer{
 display: grid;
 }
 
@@ -31,7 +31,6 @@ justify-content:space-around;
 }
 
 #leftSection > *, #rightSection > *{
-background-color: pink;
 height:90%;
 }
 
@@ -56,20 +55,33 @@ gap: 10px;
 }
 
 main > section{
-outline: 2px solid green;
 width: 98%;
 height: 98%;
-gap:4px
+gap:4px;
+justify-self:center;
+align-self:center;
 }
 
 main article{
 border: 2px solid var(--black)
-
 }
 
 #leftSection{
-grid-template:1fr 1fr 60% / 1fr
+grid-template:1fr 1fr 60% / 1fr;
 }
+
 #rightSection{
-grid-template:80% 1fr / 1fr
+grid-template:80% 1fr / 1fr;
+}
+
+
+#listContainer{
+grid-template:20% 1fr / 1fr;
+gap: 2px;
+justify-items:center;
+}
+
+#list{
+border: 2px solid var(--black);
+width:98%
 }
