@@ -1,31 +1,30 @@
-import {calculateFood, calculateMoney, calculateProduct} from './../list/calculate.js';
+import { calculateFood, calculateMoney, calculateProduct } from './../list/calculate.js';
 
-
+let selectedSection;
 const typeSelector = document.querySelector('#leftSection > article p + select');
 
-typeSelector.addEventListener('change',(event)=>{displayContentForType(event.target.value)})
+typeSelector.addEventListener('change', (event) => { displayContentForType(event.target.value) })
 
 let expenseContentContainer = document.getElementById('expenseContent');
 
-displayContentForType(typeSelector.value);
 
 export function displayContentForType(targetValue) {
 
-switch(targetValue){
+  switch (targetValue) {
     case 'food':
-    generateFood()
-    break;
+      generateFood()
+      break;
     case 'product':
-    generateProduct()
-    break;
+      generateProduct()
+      break;
     case 'money':
-    generateMoney()
-    break;
+      generateMoney()
+      break;
   }
 }
 
-function generateFood(){
-expenseContentContainer.innerHTML =` <p>name:</p>
+function generateFood() {
+  expenseContentContainer.innerHTML = ` <p>name:</p>
 <input type="text" id="name">
 <p>price:</p>
 <input type="number" id="price">
@@ -46,26 +45,35 @@ expenseContentContainer.innerHTML =` <p>name:</p>
 <button id='apply'>apply</button>
 </div>
     `
- document.getElementById('apply').addEventListener('click', calculateFood)
+  document.getElementById('apply').addEventListener('click', calculateFood)
+
+  if (window.typeOfCalculation == 'monthly') {
+    selectedSection = expenseContentContainer.querySelector('section');
+  }
+  else {
+    selectedSection = expenseContentContainer.querySelector('section:last-of-type');
+  }
+
+  selectedSection.classList.add('selected');
 }
 
 
-function generateProduct(){
-expenseContentContainer.innerHTML =` <p>name:</p>
+function generateProduct() {
+  expenseContentContainer.innerHTML = ` <p>name:</p>
 <input type="text" id="name">
 <p>price:</p>
 <input type="number" id="price">
 <button id='apply'>apply</button>
 `
 
- document.getElementById('apply').addEventListener('click', calculateProduct)
+  document.getElementById('apply').addEventListener('click', calculateProduct)
 
 }
 
-function generateMoney(){
-expenseContentContainer.innerHTML =` <p>money:</p>
+function generateMoney() {
+  expenseContentContainer.innerHTML = ` <p>money:</p>
 <input type="number" id="price">
 <button id='apply'>apply</button>
 `
- document.getElementById('apply').addEventListener('click', calculateMoney)
+  document.getElementById('apply').addEventListener('click', calculateMoney)
 }

@@ -1,3 +1,7 @@
+import { displayContentForType} from './display/expenseType.js';
+
+
+const typeSelector = document.querySelector('#leftSection > article p + select');
 const typeSelect = document.querySelector('#typeContainer select');
 
 typeSelect.addEventListener('click', changeTypeOfCalculation)
@@ -12,5 +16,6 @@ else{
 window.typeOfCalculation = 'weekly';
 }
 
+displayContentForType(typeSelector.value);
 
 }
