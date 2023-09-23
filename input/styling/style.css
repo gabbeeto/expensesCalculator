@@ -38,6 +38,11 @@ height:90%;
 
 /* body section */
 
+body{
+background-color: var(--white);
+color: var(--black);
+
+}
 
 header{
 height: var(--headerHeigh);
