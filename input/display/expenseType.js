@@ -1,3 +1,6 @@
+import {calculateFood, calculateMoney, calculateProduct} from './../list/calculate.js';
+
+
 const typeSelector = document.querySelector('#leftSection > article p + select');
 
 typeSelector.addEventListener('change',(event)=>{displayContentForType(event.target.value)})
@@ -40,8 +43,10 @@ expenseContentContainer.innerHTML =` <p>name:</p>
     <p>amount of days per week: <br> <span>(you eat)</span></p>
     <input type="number" id="price">
   </section>
+<button id='apply'>apply</button>
 </div>
     `
+ document.getElementById('apply').addEventListener('click', calculateFood)
 }
 
 
@@ -49,10 +54,18 @@ function generateProduct(){
 expenseContentContainer.innerHTML =` <p>name:</p>
 <input type="text" id="name">
 <p>price:</p>
-<input type="number" id="price">`
+<input type="number" id="price">
+<button id='apply'>apply</button>
+`
+
+ document.getElementById('apply').addEventListener('click', calculateProduct)
+
 }
 
 function generateMoney(){
 expenseContentContainer.innerHTML =` <p>money:</p>
-<input type="number" id="price">`
+<input type="number" id="price">
+<button id='apply'>apply</button>
+`
+ document.getElementById('apply').addEventListener('click', calculateMoney)
 }
