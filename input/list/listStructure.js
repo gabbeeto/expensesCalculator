@@ -5,14 +5,14 @@ class Item {
   }
 }
 
-class Money extends Item {
+export class Money extends Item {
   constructor(price, type) {
     super(type = 'money', price)
   }
 }
 
 
-class Product extends Item {
+export class Product extends Item {
   constructor(name, price, type) {
     super(type = 'product', price)
     this.name = name;
@@ -20,7 +20,7 @@ class Product extends Item {
 }
 
 
-class Food extends Item {
+export class Food extends Item {
   constructor(name, price, amountPerPrice, amountPerDay, weekAmount, monthAmount, type) {
     super(type = 'food', price)
     this.name = name;
