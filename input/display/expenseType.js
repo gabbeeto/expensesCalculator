@@ -27,20 +27,20 @@ function generateFood() {
   expenseContentContainer.innerHTML = ` <p>name:</p>
 <input type="text" id="name">
 <p>price:</p>
-<input type="number" id="price">
+<input type="number" inputmode='decimal' id="price">
 <p>amount of food per price:</p>
-<input type="number" id="amountPerPrice">
+<input type="text" inputmode='numeric' id="amountPerPrice">
 <p>amount of food per day:</p>
-<input type="number" id="amountPerDay">
+<input type="text" inputmode='numeric' id="amountPerDay">
 <div>
   <section>
     <p>amount of days per month: <br> <span>(you eat)</span></p>
-    <input type="number" id="weekAmount">
+    <input type="text" inputmode='numeric' id="weekAmount">
   </section>
   <p>or</p>
   <section>
     <p>amount of days per week: <br> <span>(you eat)</span></p>
-    <input type="number" id="monthAmount">
+    <input type="text" inputmode='numeric' id="monthAmount">
   </section>
 <button id='apply'>apply</button>
 </div>`

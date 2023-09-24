@@ -12,11 +12,11 @@ switch(window.typeOfCalculation){
 
 function getValuesForFood(){
 let name = document.getElementById('name').value;
-let priceForFood = document.getElementById('#price').value;
-let amountPerPrice = document.getElementById('#amountPerPrice').value;
-let amountPerDay = document.getElementById('#amountPerDay').value;
-let weekAmount = document.getElementById('#weekAmount').value;
-let monthAmount = document.getElementById('#monthAmount').value;
+let priceForFood = Number(document.getElementById('#price').value);
+let amountPerPrice = Number(document.getElementById('#amountPerPrice').value);
+let amountPerDay = Number(document.getElementById('#amountPerDay').value);
+let weekAmount = Number(document.getElementById('#weekAmount').value);
+let monthAmount = Number(document.getElementById('#monthAmount').value);
 
 return new Food(name,priceForFood,amountPerPrice,amountPerDay,weekAmount,monthAmount)
 }
