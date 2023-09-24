@@ -29,22 +29,21 @@ function generateFood() {
 <p>price:</p>
 <input type="number" id="price">
 <p>amount of food per price:</p>
-<input type="number" id="price">
+<input type="number" id="amountPerPrice">
 <p>amount of food per day:</p>
-<input type="number" id="price">
+<input type="number" id="amountPerDay">
 <div>
   <section>
     <p>amount of days per month: <br> <span>(you eat)</span></p>
-    <input type="number" id="price">
+    <input type="number" id="weekAmount">
   </section>
   <p>or</p>
   <section>
     <p>amount of days per week: <br> <span>(you eat)</span></p>
-    <input type="number" id="price">
+    <input type="number" id="monthAmount">
   </section>
 <button id='apply'>apply</button>
-</div>
-    `
+</div>`
   document.getElementById('apply').addEventListener('click', calculateFood)
 
   if (window.typeOfCalculation == 'monthly') {
