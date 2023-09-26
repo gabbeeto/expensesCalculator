@@ -5,7 +5,7 @@ const typeSelector = document.querySelector('#leftSection > article p + select')
 
 typeSelector.addEventListener('change', (event) => { displayContentForType(event.target.value) })
 
-let expenseContentContainer = document.getElementById('expenseContent');
+let expenseContentContainer = document.querySelector('#expenseContent form');
 
 
 export function displayContentForType(targetValue) {
@@ -27,7 +27,7 @@ function generateFood() {
   expenseContentContainer.innerHTML = ` <p>name:</p>
 <input type="text" id="name">
 <p>price:</p>
-<input type="number" inputmode='decimal' id="price">
+<input type="text" inputmode='decimal' id="price">
 <p>amount of food per price:</p>
 <input type="text" inputmode='numeric' id="amountPerPrice">
 <p>amount of food per day:</p>

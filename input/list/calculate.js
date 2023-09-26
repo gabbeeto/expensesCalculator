@@ -11,14 +11,31 @@ switch(window.typeOfCalculation){
 }
 
 function getValuesForFood(){
-let name = document.getElementById('name').value;
-let priceForFood = Number(document.getElementById('#price').value);
-let amountPerPrice = Number(document.getElementById('#amountPerPrice').value);
-let amountPerDay = Number(document.getElementById('#amountPerDay').value);
-let weekAmount = Number(document.getElementById('#weekAmount').value);
-let monthAmount = Number(document.getElementById('#monthAmount').value);
+let nameValue = document.getElementById('name').value;
+let priceForFoodValue = document.getElementById('price').value;
+let amountPerPriceValue = document.getElementById('amountPerPrice').value;
+let amountPerDayValue = document.getElementById('amountPerDay').value;
+let weekAmountValue = document.getElementById('weekAmount').value;
+let monthAmountValue = document.getElementById('monthAmount').value;
 
-return new Food(name,priceForFood,amountPerPrice,amountPerDay,weekAmount,monthAmount)
+let regEx = /[0-9]+/g;
+let priceForFoodNumber = regEx.exec(priceForFoodValue);
+let amountPerPriceNumber = regEx.exec(amountPerPriceValue);
+let amountPerDayNumber = regEx.exec(amountPerDayValue);
+let weekAmountNumber = regEx.exec(weekAmountValue);
+let monthAmountNumber =regEx.exec(monthAmountValue);
+
+
+let name = document.getElementById('name').value;
+let priceForFood = Number(priceForFoodNumber);
+let amountPerPrice = Number(amountPerPriceNumber);
+let amountPerDay = Number(amountPerDayNumber);
+let weekAmount = Number(weekAmountNumber);
+let monthAmount = Number(monthAmountNumber);
+
+let newFood = new Food(name,priceForFood,amountPerPrice,amountPerDay,weekAmount,monthAmount);
+  console.log(newFood)
+return newFood; 
 }
 
 export function calculateProduct(){
