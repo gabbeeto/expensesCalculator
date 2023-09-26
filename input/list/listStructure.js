@@ -3,15 +3,27 @@ import { displayList} from './../display/itemsOrLists.js'
 
 
 class Item {
-  constructor(type, price) {
+  constructor(type, price,color) {
     this.type = type;
     this.price = price;
+  }
+
+  color(color = 'black'){
+    return color
+  }
+
+  changeColor(selectedColor){
+    Object.getPrototypeOf(this).color = (color = selectedColor) => {return selectedColor};
   }
 }
 
 export class Money extends Item {
   constructor(price, type) {
-    super(type = 'money', price)
+    super(type = 'money', price )
+  }
+
+  color(color = 'green'){
+    return color;
   }
 }
 
@@ -21,6 +33,11 @@ export class Product extends Item {
     super(type = 'product', price)
     this.name = name;
   }
+
+  color(color = 'blue'){
+    return color
+  }
+
 }
 
 
@@ -43,6 +60,11 @@ export class Food extends Item {
     else {
       this.monthAmount = weekAmount * 4;
     }
+  }
+
+
+  color(color = 'yellow'){
+    return color
   }
 }
 
