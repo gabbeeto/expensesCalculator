@@ -32,6 +32,7 @@ export class Food extends Item {
     else {
       this.weekAmount = monthAmount / 4;
     }
+
     if (monthAmount) {
       this.monthAmount = monthAmount;
     }

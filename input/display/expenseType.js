@@ -35,21 +35,24 @@ function generateFood() {
 <div>
   <section>
     <p>amount of days per month: <br> <span>(you eat)</span></p>
-    <input type="text" inputmode='numeric' id="weekAmount">
+    <input type="text" inputmode='numeric' id="monthAmount">
   </section>
   <p>or</p>
   <section>
     <p>amount of days per week: <br> <span>(you eat)</span></p>
-    <input type="text" inputmode='numeric' id="monthAmount">
+    <input type="text" inputmode='numeric' id="weekAmount">
   </section>
-<button id='apply'>apply</button>
+<button type='button' id='apply'>apply</button>
 </div>`
+
   document.getElementById('apply').addEventListener('click', calculateFood)
 
   if (window.typeOfCalculation == 'monthly') {
+
     selectedSection = expenseContentContainer.querySelector('section');
   }
   else {
+
     selectedSection = expenseContentContainer.querySelector('section:last-of-type');
   }
 
@@ -62,7 +65,7 @@ function generateProduct() {
 <input type="text" id="name">
 <p>price:</p>
 <input type="number" id="price">
-<button id='apply'>apply</button>
+<button type='button' id='apply'>apply</button>
 `
 
   document.getElementById('apply').addEventListener('click', calculateProduct)
@@ -72,7 +75,6 @@ function generateProduct() {
 function generateMoney() {
   expenseContentContainer.innerHTML = ` <p>money:</p>
 <input type="number" id="price">
-<button id='apply'>apply</button>
-`
+<button type='button' id='apply'>apply</button>`
   document.getElementById('apply').addEventListener('click', calculateMoney)
 }

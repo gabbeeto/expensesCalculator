@@ -7,5 +7,6 @@ import './styling/calculationType.css'
 
 
 import './list/listStructure.js';
+import './list/calculate.js';
 import './display/expenseType.js';
 import './typeCalculator.js';
