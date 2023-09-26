@@ -5,7 +5,7 @@
   <title>expenses calculator</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<script defer src="main-d09c57be9ec3a388893a.js"></script></head>
+<script defer src="main-1134e88b0b83569e1a1a.js"></script></head>
 
 <body>
   <header>
@@ -22,6 +22,7 @@
           <option value="product">product</option>
           <option value="money">money</option>
         </select>
+          <input type="color">
       </article>
 
       <article id='typeContainer'>
@@ -34,10 +35,12 @@
 
       <article id='listContainer'>
         <div>
-          <button>show products</button>
+          <button>show item</button>
           <button>show lists</button>
+          <button>edit</button>
         </div>
         <div id="list">
+
         </div>
       </article>
     </section>
@@ -46,14 +49,16 @@
 
     <section id='rightSection'>
 
-      <article id='expenseContent'><form></form></article>
-      <article id='resultContent'></article>
+      <article id='expenseContent'>
+        <form></form>
+      </article>
+      <article id='resultContent'>
+          <button>calculate</button>
+          <span id='result'></span>
+      </article>
 
     </section>
   </main>
 </body>
 
 </html>
-
-
-

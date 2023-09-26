@@ -1,28 +1,29 @@
-import { displayContentForType} from './../display/expenseType.js'
-import { displayList} from './../display/itemsOrLists.js'
+import { displayContentForType } from './../display/expenseType.js'
+import { displayList } from './../display/itemsOrLists.js'
 
 
 class Item {
-  constructor(type, price,color) {
+  constructor(type, price, color) {
     this.type = type;
     this.price = price;
   }
 
-  color(color = 'black'){
+  color(color = 'black') {
     return color
   }
 
-  changeColor(selectedColor){
-    Object.getPrototypeOf(this).color = (color = selectedColor) => {return selectedColor};
+  changeColor(selectedColor) {
+    console.log(this)
+    this.color = (color = selectedColor) => { return selectedColor };
   }
 }
 
 export class Money extends Item {
   constructor(price, type) {
-    super(type = 'money', price )
+    super(type = 'money', price)
   }
 
-  color(color = 'green'){
+  color(color = 'green') {
     return color;
   }
 }
@@ -34,7 +35,7 @@ export class Product extends Item {
     this.name = name;
   }
 
-  color(color = 'blue'){
+  color(color = 'blue') {
     return color
   }
 
@@ -63,7 +64,7 @@ export class Food extends Item {
   }
 
 
-  color(color = 'yellow'){
+  color(color = 'yellow') {
     return color
   }
 }
@@ -73,8 +74,33 @@ export class Food extends Item {
 window.currentList = [];
 window.list = [currentList];
 
-export function pushToArrayAndDisplayList(el){
-currentList.push(el);
-displayList()
-displayContentForType()
+export function pushToArrayAndDisplayList(el) {
+  currentList.push(el);
+  displayList()
+  displayContentForType()
+}
+
+
+const colorInput = document.querySelector(`input[type='color']`)
+colorInput.addEventListener('change', updateColor)
+function updateColor(event) {
+  alert('this works')
+  let select = document.querySelector('#leftSection article:first-of-type select').value
+  switch (select) {
+    case 'food':
+    Food.prototype.changeColor(event.target.value);
+    break;
+    case 'product':
+    Product.prototype.changeColor(event.target.value);
+    break;
+    case 'money':
+    Money.prototype.changeColor(event.target.value);
+    break;
+
+  }
+
+
+
+
+
 }
