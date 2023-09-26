@@ -1,26 +1,25 @@
-import { Money, Product, Food } from './listStructure.js'
-
+import {pushToArrayAndDisplayList, Money, Product, Food } from './listStructure.js'
 
 export function addFoodToTheList() {
   let nameValue = document.getElementById('name').value;
 
-  return new Food(nameValue,
+  pushToArrayAndDisplayList(new Food(nameValue,
     getNumberOf('price'),
     getNumberOf('amountPerPrice'),
     getNumberOf('amountPerDay'),
     getNumberOf('weekAmount'),
-    getNumberOf('monthAmount'))
+    getNumberOf('monthAmount')))
 }
 
 
 export function addProductToTheList() {
   let nameValue = document.getElementById('name').value;
-  return new Product(nameValue, getNumberOf('price'))
+  pushToArrayAndDisplayList(new Product(nameValue, getNumberOf('price')))
 }
 
 
 export function addMoneyToTheList() {
-  return new Money(getNumberOf('price'))
+  pushToArrayAndDisplayList(new Money(getNumberOf('price')))
 }
 
 function getNumberOf(elementId) {

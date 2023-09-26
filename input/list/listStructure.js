@@ -1,3 +1,7 @@
+import { displayContentForType} from './../display/expenseType.js'
+import { displayList} from './../display/itemsOrLists.js'
+
+
 class Item {
   constructor(type, price) {
     this.type = type;
@@ -46,3 +50,9 @@ export class Food extends Item {
 
 window.currentList = [];
 window.list = [currentList];
+
+export function pushToArrayAndDisplayList(el){
+currentList.push(el);
+displayList()
+displayContentForType()
+}
