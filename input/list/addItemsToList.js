@@ -1,17 +1,7 @@
-import { Item, Money, Product, Food } from './listStructure.js'
+import { Money, Product, Food } from './listStructure.js'
 
-export function calculateFood() {
-  switch (window.typeOfCalculation) {
-    case 'monthly':
-      getValuesForFood()
-      break;
-    case 'weekly':
-      getValuesForFood()
-      break;
-  }
-}
 
-function getValuesForFood() {
+export function addFoodToTheList() {
   let nameValue = document.getElementById('name').value;
 
   return new Food(nameValue,
@@ -23,14 +13,14 @@ function getValuesForFood() {
 }
 
 
-export function calculateProduct() {
+export function addProductToTheList() {
   let nameValue = document.getElementById('name').value;
-  return new Product(nameValue,getNumberOf('price')) 
+  return new Product(nameValue, getNumberOf('price'))
 }
 
 
-export function calculateMoney() {
-  return new Money(getNumberOf('price')) 
+export function addMoneyToTheList() {
+  return new Money(getNumberOf('price'))
 }
 
 function getNumberOf(elementId) {

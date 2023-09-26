@@ -1,4 +1,4 @@
-import { calculateFood, calculateMoney, calculateProduct } from './../list/calculate.js';
+import { addFoodToTheList, addMoneyToTheList, addProductToTheList } from './../list/addItemsToList.js';
 
 let selectedSection;
 const typeSelector = document.querySelector('#leftSection > article p + select');
@@ -45,7 +45,7 @@ function generateFood() {
 <button type='button' id='apply'>apply</button>
 </div>`
 
-  document.getElementById('apply').addEventListener('click', calculateFood)
+  document.getElementById('apply').addEventListener('click', addFoodToTheList)
 
   if (window.typeOfCalculation == 'monthly') {
 
@@ -68,7 +68,7 @@ function generateProduct() {
 <button type='button' id='apply'>apply</button>
 `
 
-  document.getElementById('apply').addEventListener('click', calculateProduct)
+  document.getElementById('apply').addEventListener('click', addProductToTheList)
 
 }
 
@@ -76,5 +76,5 @@ function generateMoney() {
   expenseContentContainer.innerHTML = ` <p>money:</p>
 <input type="number" id="price">
 <button type='button' id='apply'>apply</button>`
-  document.getElementById('apply').addEventListener('click', calculateMoney)
+  document.getElementById('apply').addEventListener('click', addMoneyToTheList)
 }
