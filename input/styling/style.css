@@ -5,8 +5,8 @@ box-sizing:border-box;
 }
 
 :root{
---headerHeigh: 10vh;
---mainHeigh:calc(100vh - var(--headerHeigh));
+--headerHeigh: 10%;
+--mainHeigh:90%;
 
 /* color section */
 --black: black;
@@ -20,6 +20,7 @@ header,article, form{
 display: flex;
 justify-content:center;
 align-content:center;
+text-align:center;
 }
 
 main,#leftSection, #rightSection, #listContainer{
@@ -31,9 +32,6 @@ display: grid;
 justify-content:space-around;
 }
 
-#leftSection > *, #rightSection > *{
-height:90%;
-}
 
 
 
@@ -43,23 +41,33 @@ body{
 background-color: var(--white);
 color: var(--black);
 transition: background-color, color 2s;
+height:105vh;
 }
 
 header{
 height: var(--headerHeigh);
 border-bottom: 2px solid var(--black);
 }
+header button{
+height:80%;
+align-self:center;
+
+}
 
 header h1{
 font-size:8vh;
+}
+header h1 span{
+font-size:3vh;
 }
 
 button{
 background-color: var(--white);
 color:var(--black);
 border: 2px solid var(--black);
-padding: 10px;
+padding: 8px;
 border-radius:12px;
+
 }
 
 button:hover{
@@ -126,3 +134,4 @@ justify-items:center;
 border: 2px solid var(--black);
 width:98%
 }
+
