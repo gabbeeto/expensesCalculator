@@ -1,7 +1,7 @@
 import { addFoodToTheList, addMoneyToTheList, addProductToTheList } from './../list/addItemsToList.js';
 
 let selectedSection;
-const typeSelector = document.querySelector('#leftSection > article p + select');
+const typeSelector = document.querySelector('article:first-of-type select');
 
 typeSelector.addEventListener('change', (event) => { displayContentForType(event.target.value) })
 
@@ -24,6 +24,7 @@ export function displayContentForType(targetValue) {
 }
 
 function generateFood() {
+  alert('this happened')
   expenseContentContainer.innerHTML = ` <p>name:</p>
 <input type="text" id="name">
 <p>price:</p>

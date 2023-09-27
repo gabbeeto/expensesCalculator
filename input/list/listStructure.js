@@ -85,7 +85,7 @@ const colorInput = document.querySelector(`input[type='color']`)
 colorInput.addEventListener('change', updateColor)
 function updateColor(event) {
   alert('this works')
-  let select = document.querySelector('#leftSection article:first-of-type select').value
+  let select = document.querySelector('article:first-of-type select').value
   switch (select) {
     case 'food':
     Food.prototype.changeColor(event.target.value);

@@ -1,9 +1,8 @@
 import { displayContentForType} from './display/expenseType.js';
 
 
-const typeSelector = document.querySelector('#leftSection > article p + select');
 const typeSelect = document.querySelector('#typeContainer select');
-
+const typeSelector = document.querySelector('article:first-of-type select');
 typeSelect.addEventListener('click', changeTypeOfCalculation)
 
 changeTypeOfCalculation();
