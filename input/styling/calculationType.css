@@ -1,5 +1,6 @@
 .selected{
+border-radius:5px;
 background-color: var(--green);
-
+padding:5px;
 
 }

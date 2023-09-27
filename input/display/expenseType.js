@@ -42,8 +42,9 @@ function generateFood() {
     <p>amount of days per week: <br> <span>(you eat)</span></p>
     <input type="text" inputmode='numeric' id="weekAmount">
   </section>
+</div>
 <button type='button' id='apply'>apply</button>
-</div>`
+`
 
   document.getElementById('apply').addEventListener('click', addFoodToTheList)
 
@@ -64,7 +65,7 @@ function generateProduct() {
   expenseContentContainer.innerHTML = ` <p>name:</p>
 <input type="text" id="name">
 <p>price:</p>
-<input type="number" id="price">
+<input type="text" inputmode='numeric' id="price">
 <button type='button' id='apply'>apply</button>
 `
 
@@ -74,7 +75,7 @@ function generateProduct() {
 
 function generateMoney() {
   expenseContentContainer.innerHTML = ` <p>money:</p>
-<input type="number" id="price">
+<input type="text" inputmode='numeric' id="price">
 <button type='button' id='apply'>apply</button>`
   document.getElementById('apply').addEventListener('click', addMoneyToTheList)
 }

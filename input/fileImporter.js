@@ -4,6 +4,7 @@ import './styling/style.css'
 import './styling/darkmode.css'
 import './styling/darkmode.js'
 import './styling/calculationType.css'
+import './styling/list.css'
 
 
 import './list/listStructure.js';
