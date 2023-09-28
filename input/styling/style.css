@@ -43,7 +43,7 @@ border-bottom:2px solid var(--black)
 }
 
 header h1{
-font-size:max(0.9rem,3.5vw);
+font-size:max(1rem,3.8vw);
 }
 header span{
 display:block;
@@ -73,7 +73,14 @@ padding: 5px 0px;
 width:98%;
 border-radius:10px;
 }
+article form div{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+gap: 7px;
 
+}
 
 button{
 background-color: var(--white);
@@ -97,6 +104,15 @@ background-color: var(--white);
 color:var(--black);
 border: 2px solid var(--black);
 padding:6px;
+}
+
+input[type='text']{
+padding:3px;
+border-radius:4px;
+background-color:var(--white);
+border:2px solid var(--black);
+color:var(--black);
+
 }
 
 
