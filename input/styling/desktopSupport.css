@@ -1,12 +1,18 @@
 @media(min-width:900px){
-
+header span{
+display:inline;
+font-size:2.2vw;
+  }
 
 main{
-grid-template:'expenseType expenseContent' 10%
-              'typeOfCalculation expenseContent' 10%             
+height:90vh;
+min-height: 550px;
+grid-template:'expenseType expenseContent' 0.9fr
+              'typeOfCalculation expenseContent' 0.9fr             
               'showList expenseContent' 1fr
               'showList resultContent' 1fr / 1fr 1fr
 }
+
 
   /* on the left */
 main article:first-of-type{
@@ -27,5 +33,6 @@ grid-area:expenseContent;
 #resultContent{
 grid-area:resultContent;
 }
+
 
 }
