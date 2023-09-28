@@ -1,10 +1,31 @@
 @media(min-width:900px){
 
 
-// work on this 
 main{
-grid-template: 1fr 1fr 1fr/ 1fr 1fr 
+grid-template:'expenseType expenseContent' 10%
+              'typeOfCalculation expenseContent' 10%             
+              'showList expenseContent' 1fr
+              'showList resultContent' 1fr / 1fr 1fr
+}
+
+  /* on the left */
+main article:first-of-type{
+grid-area: expenseType;
+}
+#typeContainer{
+grid-area:typeOfCalculation;
+}
+#listContainer{
+grid-area:showList;
+}
+
+/* on the right */
+
+#expenseContent{
+grid-area:expenseContent;
+}
+#resultContent{
+grid-area:resultContent;
 }
 
 }
-
