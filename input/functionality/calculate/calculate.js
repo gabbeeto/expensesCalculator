@@ -1,4 +1,8 @@
-const calculateButton = document.querySelector(`#resultContent button`);
+
+
+const calculateContainer = document.querySelector(`#resultContent`);
+const calculateButton = calculateContainer.querySelector(`button`);
+const calculateSpan = calculateContainer.querySelector(`span`);
 
 calculateButton.addEventListener('click', calculate)
 
@@ -15,7 +19,8 @@ let result =  currentList.reduce((accumulator, currentItem) => {
         return accumulator + currentItem.price(currentItem);
     }
   }, 0);
-  console.log(result)
+
+calculateSpan.innerText = result;
 }
 
 
