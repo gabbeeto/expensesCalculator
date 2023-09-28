@@ -1,7 +1,7 @@
 import { displayContentForType } from './../display/expenseType.js'
 import { displayList } from './../display/itemsOrLists.js'
 
-
+// class section
 class Item {
   constructor(type, price, color) {
     this.type = type;
@@ -71,8 +71,15 @@ export class Food extends Item {
 
 
 
+
+// list section
 window.currentList = [];
 window.list = [currentList];
+
+
+
+
+// function to push to array section
 
 export function pushToArrayAndDisplayList(el) {
   currentList.push(el);
@@ -81,26 +88,22 @@ export function pushToArrayAndDisplayList(el) {
 }
 
 
+
+// color section
+
 const colorInput = document.querySelector(`input[type='color']`)
 colorInput.addEventListener('change', updateColor)
 function updateColor(event) {
-  alert('this works')
   let select = document.querySelector('article:first-of-type select').value
   switch (select) {
     case 'food':
-    Food.prototype.changeColor(event.target.value);
-    break;
+      Food.prototype.changeColor(event.target.value);
+      break;
     case 'product':
-    Product.prototype.changeColor(event.target.value);
-    break;
+      Product.prototype.changeColor(event.target.value);
+      break;
     case 'money':
-    Money.prototype.changeColor(event.target.value);
-    break;
-
+      Money.prototype.changeColor(event.target.value);
+      break;
   }
-
-
-
-
-
 }

@@ -24,7 +24,6 @@ export function displayContentForType(targetValue) {
 }
 
 function generateFood() {
-  alert('this happened')
   expenseContentContainer.innerHTML = ` <p>name:</p>
 <input type="text" id="name">
 <p>price:</p>

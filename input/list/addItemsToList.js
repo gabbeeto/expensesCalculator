@@ -23,10 +23,11 @@ export function addMoneyToTheList() {
 }
 
 function getNumberOf(elementId) {
-  let letterRemover = /[0-9]+/g;
   let valueOfElement = document.getElementById(`${elementId}`).value
+
+  let letterRemover = /[0-9]+/g;
   let valueOfElementWithoutLetters = `${letterRemover.exec(valueOfElement)}`;
-  console.log(valueOfElementWithoutLetters)
+  
   return Number(valueOfElementWithoutLetters);
 }
 
