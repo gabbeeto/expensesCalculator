@@ -8,7 +8,9 @@ import './styling/list.css'
 import './styling/desktopSupport.css'
 
 
-import './list/listStructure.js';
-import './list/addItemsToList.js';
-import './display/expenseType.js';
-import './typeCalculator.js';
+// import functionality
+import './functionality/list/listStructure.js';
+import './functionality/list/addItemsToList.js';
+import './functionality/display/expenseType.js';
+import './functionality/typeCalculator.js';
+import './functionality/calculate/calculate.js';
