@@ -5,7 +5,7 @@
   <title>expenses calculator</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<script defer src="main-a72c957d6b42ddd0d389.js"></script></head>
+<script defer src="main-27f7a96a444cc7432376.js"></script></head>
 
 <body>
   <header>
@@ -14,49 +14,82 @@
   </header>
 
   <main>
-      <article>
-        <p>expense type:</p>
-        <select name="" id="">
-          <option value="food">food</option>
-          <option value="product">product</option>
-          <option value="money">money</option>
+    <article>
+      <p>expense type:</p>
+      <select name="" id="">
+        <option value="food">food</option>
+        <option value="product">product</option>
+        <option value="money">money</option>
+      </select>
+      <input type="color">
+    </article>
+
+    <article id='listContainer'>
+      <div>
+        <select id='itemOrListContainer'>
+          <option value="item">items</option>
+          <option value="list">lists</option>
         </select>
-          <input type="color">
-      </article>
+        <button>edit</button>
+        <button>add new List</button>
+      </div>
+      <ul id="list">
 
-      <article id='listContainer'>
-        <div>
-          <button>show item</button>
-          <button>show lists</button>
-          <button>edit</button>
-        </div>
-        <ul id="list">
-
-        </ul>
-      </article>
+      </ul>
+    </article>
 
 
-      <article id='typeContainer'>
-        <p>type of calculator</p>
-        <select>
-          <option value="monthly">month calculator</option>
-          <option value="weekly">week calculator</option>
-        </select>
-      </article>
+    <article id='typeContainer'>
+      <p>type of calculator</p>
+      <select>
+        <option value="monthly">month calculator</option>
+        <option value="weekly">week calculator</option>
+      </select>
+    </article>
 
 
 
 
 
-      <article id='expenseContent'>
-        <form></form>
-      </article>
-      <article id='resultContent'>
-          <button>calculate</button>
-          <span id='result'></span>
-      </article>
+    <article id='expenseContent'>
+      <form></form>
+    </article>
+    <article id='resultContent'>
+      <button>calculate</button>
+      <span id='result'></span>
+    </article>
 
   </main>
+
+<dialog>
+<p>name:</p>
+<input type="text">
+<button>add</button>
+</dialog>
+
+
+<dialog open>
+<p>name:</p>
+<input type="text" id="name">
+<p>price:</p>
+<input type="text" inputmode='decimal' id="price">
+<p>amount of food per price:</p>
+<input type="text" inputmode='numeric' id="amountPerPrice">
+<p>amount of food per day:</p>
+<input type="text" inputmode='numeric' id="amountPerDay">
+<div>
+  <section>
+    <p>amount of days per month: <br> <span>(you eat)</span></p>
+    <input type="text" inputmode='numeric' id="monthAmount">
+  </section>
+  <p>or</p>
+  <section>
+    <p>amount of days per week: <br> <span>(you eat)</span></p>
+    <input type="text" inputmode='numeric' id="weekAmount">
+  </section>
+</div>
+<button type='button' id='apply'>apply</button>
+</dialog>
 </body>
 
 </html>

@@ -1,0 +1,25 @@
+dialog{
+display: flex;
+flex-direction:column;
+text-align:center;
+justify-content:center;
+align-items:center;
+gap:2px;
+background-color:var(--white);
+color:var(--black);
+border:2px solid var(--black);
+position:fixed;
+top:50%;
+left:50%;
+transform: translate(-50%,-50%);
+z-index:2;
+padding:1.2vw;
+border-radius:10px;
+}
+  
+dialog::backdrop{
+position:fixed;
+background-image:linear-gradient(#215A59AA,black) ;
+background-size:cover;
+opacity:0.7;
+}
