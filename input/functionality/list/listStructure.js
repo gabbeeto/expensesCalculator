@@ -69,11 +69,13 @@ export class Food extends Item {
   }
 }
 
-
+function List(name,array = []){
+  return {array,name}
+}
 
 
 // list section
-window.currentList = [];
+window.currentList = new List('default');
 window.list = [currentList];
 
 
@@ -82,7 +84,7 @@ window.list = [currentList];
 // function to push to array section
 
 export function pushToArrayAndDisplayList(el) {
-  currentList.push(el);
+  currentList.array.push(el);
   displayList()
   displayContentForType()
 }

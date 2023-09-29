@@ -10,7 +10,7 @@ calculateButton.addEventListener('click', calculate)
 
 function calculate() {
 
-let result =  currentList.reduce((accumulator, currentItem) => {
+let result =  currentList.array.reduce((accumulator, currentItem) => {
     switch (currentItem.type) {
       case 'food':
         return accumulator + calculatedFood(currentItem);

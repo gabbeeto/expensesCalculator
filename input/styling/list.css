@@ -8,4 +8,5 @@ overflow:scroll;
 
 #list li.selectedItem{
 outline: 2px solid orange;
+list-style: none;
 }
