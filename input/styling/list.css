@@ -5,3 +5,7 @@ width:90%;
 height:90%;
 overflow:scroll;
 }
+
+#list li.selectedItem{
+outline: 2px solid orange;
+}
