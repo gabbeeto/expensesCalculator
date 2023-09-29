@@ -14,47 +14,49 @@
   </header>
 
   <main>
-      <article>
-        <p>expense type:</p>
-        <select name="" id="">
-          <option value="food">food</option>
-          <option value="product">product</option>
-          <option value="money">money</option>
+    <article>
+      <p>expense type:</p>
+      <select name="" id="">
+        <option value="food">food</option>
+        <option value="product">product</option>
+        <option value="money">money</option>
+      </select>
+      <input type="color">
+    </article>
+
+    <article id='listContainer'>
+      <div>
+        <select id='itemOrListContainer'>
+          <option value="item">show items</option>
+          <option value="list">show lists</option>
         </select>
-          <input type="color">
-      </article>
+        <button>edit</button>
+      </div>
+      <ul id="list">
 
-      <article id='listContainer'>
-        <div>
-          <button>show item</button>
-          <button>show lists</button>
-          <button>edit</button>
-        </div>
-        <ul id="list">
-
-        </ul>
-      </article>
+      </ul>
+    </article>
 
 
-      <article id='typeContainer'>
-        <p>type of calculator</p>
-        <select>
-          <option value="monthly">month calculator</option>
-          <option value="weekly">week calculator</option>
-        </select>
-      </article>
+    <article id='typeContainer'>
+      <p>type of calculator</p>
+      <select>
+        <option value="monthly">month calculator</option>
+        <option value="weekly">week calculator</option>
+      </select>
+    </article>
 
 
 
 
 
-      <article id='expenseContent'>
-        <form></form>
-      </article>
-      <article id='resultContent'>
-          <button>calculate</button>
-          <span id='result'></span>
-      </article>
+    <article id='expenseContent'>
+      <form></form>
+    </article>
+    <article id='resultContent'>
+      <button>calculate</button>
+      <span id='result'></span>
+    </article>
 
   </main>
 </body>
