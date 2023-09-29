@@ -1,4 +1,4 @@
-import { selectItemDiv,selectListDiv } from './../editItemOrList/selection.js'
+import { selectDiv } from './../editItemOrList/selection.js'
 
 const container = document.getElementById('list');
 const select = document.getElementById('itemOrListContainer');
@@ -18,7 +18,7 @@ export function displayList() {
 
 function appendItems(item, currentListOfItemsIndex) {
   let li = document.createElement('li');
-  li.addEventListener('click', selectItemDiv)
+  li.addEventListener('click', selectDiv)
   let nameText = document.createElement('p');
   nameText.innerText = item.name;
   nameText.style.color = item.color();
@@ -31,7 +31,7 @@ function appendItems(item, currentListOfItemsIndex) {
 
 function appendLists(list, currentListofListsIndex) {
   let li = document.createElement('li');
-  li.addEventListener('click', selectListDiv)
+  li.addEventListener('click', selectDiv)
   let nameText = document.createElement('p');
   nameText.innerText = list.name;
   nameText.dataset.index = currentListofListsIndex;

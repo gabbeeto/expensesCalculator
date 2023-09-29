@@ -1,4 +1,4 @@
-export function selectItemDiv(event) {
+export function selectDiv(event) {
   if (event.target.dataset.index) {
     window.selectedIndex = event.target.dataset.index
     selectParent(event)
@@ -6,10 +6,6 @@ export function selectItemDiv(event) {
 }
 
 
-export function selectListDiv(){
-alert('this works')
-
-}
 
 
 function selectParent(event){
