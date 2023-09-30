@@ -13,6 +13,7 @@ export function createList() {
 function generateContentForDialog() {
   let typeOfList = document.querySelector('#itemOrListContainer').value;
   let item = currentList.array[selectedIndex];
+  let selectedList = list[selectedIndex];
   if (typeOfList == 'item') {
     switch (item.type) {
       case 'food':
@@ -55,10 +56,23 @@ function generateContentForDialog() {
         break;
     }
     let applyButton = dialog.querySelector('#apply');
-    applyButton.addEventListener('click', applyChanges);
+    applyButton.addEventListener('click', applyChangesForItems);
   }
+    else{
+        dialog.innerHTML = `<button class='closeBtn'>close</button>
+        <p>name:</p>
+        <input value='${selectedList.name}'type="text" id="name">
+        <button type='button' id='apply'>apply</button>`;
+    }
+    let applyButton = dialog.querySelector('#apply');
+    applyButton.addEventListener('click', applyChangesForLists);
+
 }
 
-function applyChanges() {
+function applyChangesForItems() {
   alert('changes are being apppliieid');
+}
+
+function applyChangesForLists() {
+  alert('changes are being apppliieid 2');
 }
