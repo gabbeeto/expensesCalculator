@@ -232,7 +232,7 @@ function reassingValueFromCurrentIndexIfItsAProduct(product) {
 
 
 function reassingValueFromCurrentIndexIfItsMoney(money) {
-  currentList.array[selectedIndex] = new Product(money.price)
+  currentList.array[selectedIndex] = new Money(money.price)
 }
 
 
