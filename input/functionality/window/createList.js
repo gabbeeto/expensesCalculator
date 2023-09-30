@@ -1,4 +1,4 @@
-import { addEventListenerToButtons } from './openWindow.js';
+import { addEventListenerToButtons, closePopUp } from './openWindow.js';
 import { transformToNumber } from './../list/addItemsToList.js';
 const dialog = document.getElementById('editPopUp');
 
@@ -80,6 +80,7 @@ function applyChangesForItems() {
         .then(checkIfFoodIsEmpty)
         .then(makeWeeksOrMonthsValid)
         .then(food => currentList.array[selectedIndex] = food)
+        .then(closePopUp)
         .catch(error => alert(error))
 
   }

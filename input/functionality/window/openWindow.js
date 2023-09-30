@@ -34,7 +34,7 @@ export function addEventListenerToButtons() {
 }
 addEventListenerToButtons()
 
-function closePopUp() {
+export function closePopUp() {
   for (let dialog of document.querySelectorAll('dialog')) {
     if (dialog.open) {
       dialog.close()
