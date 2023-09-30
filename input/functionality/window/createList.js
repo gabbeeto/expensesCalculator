@@ -81,7 +81,24 @@ function applyChangesForItems() {
         .then(makeWeeksOrMonthsValid)
         .then(food => currentList.array[selectedIndex] = food)
         .then(closePopUp)
-        .catch(error => alert(error))
+        .catch(error => alert(error));
+      break;
+    case 'product':
+      getValuesFromProductInputs()
+        .then(getValuesForProduct)
+        .then(checkIfProductIsEmpty)
+        .then(product => currentList.array[selectedIndex] = product)
+        .then(closePopUp)
+        .catch(error => alert(error));
+      break;
+    case 'money':
+      getValuesFromMoneyInputs()
+        .then(getValuesForMoney)
+        .then(checkIfMoneyIsEmpty)
+        .then(money => currentList.array[selectedIndex] = money)
+        .then(closePopUp)
+        .catch(error => alert(error));
+      break;
 
   }
 }
@@ -96,6 +113,21 @@ async function getValuesFromFoodInputs() {
   let weekAmount = dialog.querySelector('#weekAmount').value;
   return { name, price, amountPerPrice, amountPerDay, monthAmount, weekAmount };
 }
+
+async function getValuesFromProductInputs() {
+  let name = dialog.querySelector('#name').value;
+  let price = dialog.querySelector('#price').value;
+  return { name, price};
+}
+
+
+async function getValuesFromMoneyInputs() {
+  let price = dialog.querySelector('#price').value;
+  return { price};
+}
+
+
+
 function getValuesForFood(food) {
   let name = food.name;
   let price = transformToNumber(food.price);
@@ -105,6 +137,22 @@ function getValuesForFood(food) {
   let weekAmount = transformToNumber(food.weekAmount);
   return { name, price, amountPerPrice, amountPerDay, monthAmount, weekAmount }
 }
+
+function getValuesForProduct(product) {
+  let name = product.name;
+  let price = transformToNumber(product.price);
+  return { name, price}
+}
+
+
+function getValuesForMoney(money) {
+  let price = transformToNumber(money.price);
+  return { price}
+}
+
+
+
+
 
 function checkIfFoodIsEmpty(food) {
   // check emptyness 
@@ -116,6 +164,21 @@ function checkIfFoodIsEmpty(food) {
   checkIfEmpty(food.monthAmount, 'the amount of months in which you eat that food ');
   return { name: food.name, price: food.price, amountPerPrice: food.amountPerPrice, amountPerDay: food.amountPerDay, weekAmount: food.weekAmount, monthAmount: food.monthAmount }
 }
+
+function checkIfProductIsEmpty(product) {
+  // check emptyness 
+  checkIfEmpty(product.name, 'the name of the product');
+  checkIfEmpty(product.price, 'the price of the product');
+  return { name: product.name, price: product.price}
+}
+
+
+function checkIfMoneyIsEmpty(money) {
+  // check emptyness 
+  checkIfEmpty(money.price, 'any money');
+  return {price: money.price}
+}
+
 
 function checkIfEmpty(element, nameOfElementForEmptyMessage) {
   if (`${element}` == 'NaN') {

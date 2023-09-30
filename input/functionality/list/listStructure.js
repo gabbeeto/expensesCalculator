@@ -3,7 +3,7 @@ import { displayList } from './../display/itemsOrLists.js'
 
 // class section
 class Item {
-  constructor(type, price, color) {
+  constructor(type, price) {
     this.type = type;
     this.price = price;
   }
@@ -19,8 +19,9 @@ class Item {
 }
 
 export class Money extends Item {
-  constructor(price, type) {
+  constructor(price, name = price , type) {
     super(type = 'money', price)
+    this.name = name;
   }
 
   color(color = 'green') {
