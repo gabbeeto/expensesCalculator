@@ -1,6 +1,8 @@
 import { addEventListenerToButtons, closePopUp } from './openWindow.js';
 import { transformToNumber } from './../list/addItemsToList.js';
-import { Food,Product,Money } from './../list/listStructure.js';
+import { Food, Product, Money } from './../list/listStructure.js';
+import { displayList } from './../display/itemsOrLists.js'
+
 const dialog = document.getElementById('editPopUp');
 
 export function createList() {
@@ -81,6 +83,7 @@ function applyChangesForItems() {
         .then(checkIfFoodIsEmpty)
         .then(makeWeeksOrMonthsValid)
         .then(reassingValueFromCurrentIndexIfItsAFood)
+        .then(displayList)
         .then(closePopUp)
         .catch(error => console.log(error));
       break;
@@ -89,6 +92,7 @@ function applyChangesForItems() {
         .then(getValuesForProduct)
         .then(checkIfProductIsEmpty)
         .then(reassingValueFromCurrentIndexIfItsAProduct)
+        .then(displayList)
         .then(closePopUp)
         .catch(error => alert(error));
       break;
@@ -97,6 +101,7 @@ function applyChangesForItems() {
         .then(getValuesForMoney)
         .then(checkIfMoneyIsEmpty)
         .then(reassingValueFromCurrentIndexIfItsMoney)
+        .then(displayList)
         .then(closePopUp)
         .catch(error => alert(error));
       break;
@@ -118,13 +123,13 @@ async function getValuesFromFoodInputs() {
 async function getValuesFromProductInputs() {
   let name = dialog.querySelector('#name').value;
   let price = dialog.querySelector('#price').value;
-  return { name, price};
+  return { name, price };
 }
 
 
 async function getValuesFromMoneyInputs() {
   let price = dialog.querySelector('#price').value;
-  return { price};
+  return { price };
 }
 
 
@@ -142,13 +147,13 @@ function getValuesForFood(food) {
 function getValuesForProduct(product) {
   let name = product.name;
   let price = transformToNumber(product.price);
-  return { name, price}
+  return { name, price }
 }
 
 
 function getValuesForMoney(money) {
   let price = transformToNumber(money.price);
-  return { price}
+  return { price }
 }
 
 
@@ -170,14 +175,14 @@ function checkIfProductIsEmpty(product) {
   // check emptyness 
   checkIfEmpty(product.name, 'the name of the product');
   checkIfEmpty(product.price, 'the price of the product');
-  return { name: product.name, price: product.price}
+  return { name: product.name, price: product.price }
 }
 
 
 function checkIfMoneyIsEmpty(money) {
   // check emptyness 
   checkIfEmpty(money.price, 'any money');
-  return {price: money.price}
+  return { price: money.price }
 }
 
 
@@ -210,24 +215,24 @@ function makeWeeksOrMonthsValid(food) {
     food.monthAmount = parseInt(food.weekAmount * 4)
   }
 
-    return { name: food.name, price: food.price, amountPerPrice: food.amountPerPrice, amountPerDay: food.amountPerDay, weekAmount: food.weekAmount, monthAmount: food.monthAmount }
+  return { name: food.name, price: food.price, amountPerPrice: food.amountPerPrice, amountPerDay: food.amountPerDay, weekAmount: food.weekAmount, monthAmount: food.monthAmount }
 }
 
 
 
 
 
-function reassingValueFromCurrentIndexIfItsAFood(food){
-currentList.array[selectedIndex] = new Food(food.name,food.price,food.amountPerPrice,food.amountPerDay, food.weekAmount, food.monthAmount)
+function reassingValueFromCurrentIndexIfItsAFood(food) {
+  currentList.array[selectedIndex] = new Food(food.name, food.price, food.amountPerPrice, food.amountPerDay, food.weekAmount, food.monthAmount)
 }
 
-function reassingValueFromCurrentIndexIfItsAProduct(product){
-currentList.array[selectedIndex] = new Product(product.name,product.price)
+function reassingValueFromCurrentIndexIfItsAProduct(product) {
+  currentList.array[selectedIndex] = new Product(product.name, product.price)
 }
 
 
-function reassingValueFromCurrentIndexIfItsMoney(money){
-currentList.array[selectedIndex] = new Product(money.price)
+function reassingValueFromCurrentIndexIfItsMoney(money) {
+  currentList.array[selectedIndex] = new Product(money.price)
 }
 
 
