@@ -77,8 +77,10 @@ function applyChangesForItems() {
     case 'food':
       getValuesFromFoodInputs()
         .then(getValuesForFood)
-        .then(checkIfValid)
-        .catch(error => console.log(error))
+        .then(checkIfFoodIsEmpty)
+        .then(makeWeeksOrMonthsValid)
+        .then(food => currentList.array[selectedIndex] = food)
+        .catch(error => alert(error))
 
   }
 }
@@ -103,8 +105,7 @@ function getValuesForFood(food) {
   return { name, price, amountPerPrice, amountPerDay, monthAmount, weekAmount }
 }
 
-function checkIfValid(food) {
-  let item = currentList.array[selectedIndex];
+function checkIfFoodIsEmpty(food) {
   // check emptyness 
   checkIfEmpty(food.name, 'the name of the food');
   checkIfEmpty(food.price, 'the price of the food');
@@ -112,16 +113,42 @@ function checkIfValid(food) {
   checkIfEmpty(food.amountPerDay, 'the amount of food per day');
   checkIfEmpty(food.weekAmount, 'the amount of weeks in which you eat that food ');
   checkIfEmpty(food.monthAmount, 'the amount of months in which you eat that food ');
-
-  makeWeekOrMonthsValid()
+  return { name: food.name, price: food.price, amountPerPrice: food.amountPerPrice, amountPerDay: food.amountPerDay, weekAmount: food.weekAmount, monthAmount: food.monthAmount }
 }
 
 function checkIfEmpty(element, nameOfElementForEmptyMessage) {
-  if (!`${element}`) {
+  if (`${element}` == 'NaN') {
     throw new Error(`you didn't fill ${nameOfElementForEmptyMessage}`);
   }
-
+  else if (!`${element}`) {
+    throw new Error(`you didn't fill ${nameOfElementForEmptyMessage}`);
+  }
 }
+
+function makeWeeksOrMonthsValid(food) {
+  let item = currentList.array[selectedIndex];
+  // check if the week or the month is false
+  let weekEqual = false;
+  let monthEqual = false;
+  if (item.weekAmount == food.weekAmount) {
+    weekEqual = true;
+  }
+  if (item.monthAmount == food.monthAmount) {
+    monthEqual = true;
+  }
+
+  // change the other value if one of those is false but the other one is true
+  if (weekEqual == true && monthEqual == false) {
+    food.weekAmount = parseInt(food.monthAmount / 4)
+  }
+  else if (weekEqual == false && monthEqual == true) {
+    food.monthAmount = parseInt(food.weekAmount * 4)
+  }
+
+    return { name: food.name, price: food.price, amountPerPrice: food.amountPerPrice, amountPerDay: food.amountPerDay, weekAmount: food.weekAmount, monthAmount: food.monthAmount }
+}
+
+
 function applyChangesForLists() {
   alert('changes are being apppliieid 2');
 }
