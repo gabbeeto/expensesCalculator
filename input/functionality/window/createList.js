@@ -78,35 +78,29 @@ function applyChangesForItems() {
   let item = currentList.array[selectedIndex];
   switch (item.type) {
     case 'food':
-      getValuesFromFoodInputs()
-        .then(getValuesForFood)
-        .then(checkIfFoodIsEmpty)
-        .then(makeWeeksOrMonthsValid)
-        .then(reassingValueFromCurrentIndexIfItsAFood)
-        .then(displayList)
-        .then(closePopUp)
-        .catch(error => console.log(error));
+      // remember to add validity in the catch in all of these 
+      runPromiseToApplyValue(getValuesFromFoodInputs,getValuesForFood,checkIfFoodIsEmpty,reassingValueFromCurrentIndexIfItsAFood,true);
       break;
     case 'product':
-      getValuesFromProductInputs()
-        .then(getValuesForProduct)
-        .then(checkIfProductIsEmpty)
-        .then(reassingValueFromCurrentIndexIfItsAProduct)
-        .then(displayList)
-        .then(closePopUp)
-        .catch(error => alert(error));
+      runPromiseToApplyValue(getValuesFromProductInputs,getValuesForProduct,checkIfProductIsEmpty,reassingValueFromCurrentIndexIfItsAProduct);
       break;
     case 'money':
-      getValuesFromMoneyInputs()
-        .then(getValuesForMoney)
-        .then(checkIfMoneyIsEmpty)
-        .then(reassingValueFromCurrentIndexIfItsMoney)
-        .then(displayList)
-        .then(closePopUp)
-        .catch(error => alert(error));
+      runPromiseToApplyValue(getValuesFromMoneyInputs,getValuesForMoney,checkIfMoneyIsEmpty,reassingValueFromCurrentIndexIfItsMoney);
       break;
 
   }
+}
+
+function runPromiseToApplyValue(getValuesFromInput_callback, getValuesFor_callBack, checkIfItemIsEmpty_callBack, reassingValueFromCurrentIndexIfItsA_callBack,workingWithFood = false,) {
+window.workingWithFood = workingWithFood;
+  getValuesFromInput_callback()
+    .then(getValuesFor_callBack)
+    .then(checkIfItemIsEmpty_callBack)
+    .then(makeWeeksOrMonthsValid)
+    .then(reassingValueFromCurrentIndexIfItsA_callBack)
+    .then(displayList)
+    .then(closePopUp)
+    .catch(error => console.log(error));
 }
 
 
@@ -196,6 +190,8 @@ function checkIfEmpty(element, nameOfElementForEmptyMessage) {
 }
 
 function makeWeeksOrMonthsValid(food) {
+  if(window.workingWithFood){
+
   let item = currentList.array[selectedIndex];
   // check if the week or the month is false
   let weekEqual = false;
@@ -216,6 +212,12 @@ function makeWeeksOrMonthsValid(food) {
   }
 
   return { name: food.name, price: food.price, amountPerPrice: food.amountPerPrice, amountPerDay: food.amountPerDay, weekAmount: food.weekAmount, monthAmount: food.monthAmount }
+
+
+  }
+  else{
+    return food;
+  }
 }
 
 
