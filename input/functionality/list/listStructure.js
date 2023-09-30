@@ -52,14 +52,14 @@ export class Food extends Item {
       this.weekAmount = weekAmount;
     }
     else {
-      this.weekAmount = monthAmount / 4;
+      this.weekAmount = parseInt(monthAmount / 4);
     }
 
-    if (monthAmount) {
+    if (monthAmount){
       this.monthAmount = monthAmount;
     }
-    else {
-      this.monthAmount = weekAmount * 4;
+    else{
+      this.monthAmount = parseInt(weekAmount * 4);
     }
   }
 

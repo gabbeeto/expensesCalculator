@@ -25,11 +25,14 @@ export function addMoneyToTheList() {
 function getNumberOf(elementId) {
   let valueOfElement = document.getElementById(`${elementId}`).value
 
-  let letterRemover = /[0-9]+/g;
-  let valueOfElementWithoutLetters = `${letterRemover.exec(valueOfElement)}`;
-  
-  return Number(valueOfElementWithoutLetters);
+   return transformToNumber(valueOfElement)
 }
 
 
 
+export function transformToNumber(valueOfElement){
+  let letterRemover = /[0-9]+/g;
+  let valueOfElementWithoutLetters = `${letterRemover.exec(valueOfElement)}`;
+  
+  return Number(valueOfElementWithoutLetters);
+  }
