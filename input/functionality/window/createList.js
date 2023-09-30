@@ -1,5 +1,6 @@
 import { addEventListenerToButtons, closePopUp } from './openWindow.js';
 import { transformToNumber } from './../list/addItemsToList.js';
+import { Food,Product,Money } from './../list/listStructure.js';
 const dialog = document.getElementById('editPopUp');
 
 export function createList() {
@@ -79,15 +80,15 @@ function applyChangesForItems() {
         .then(getValuesForFood)
         .then(checkIfFoodIsEmpty)
         .then(makeWeeksOrMonthsValid)
-        .then(food => currentList.array[selectedIndex] = food)
+        .then(reassingValueFromCurrentIndexIfItsAFood)
         .then(closePopUp)
-        .catch(error => alert(error));
+        .catch(error => console.log(error));
       break;
     case 'product':
       getValuesFromProductInputs()
         .then(getValuesForProduct)
         .then(checkIfProductIsEmpty)
-        .then(product => currentList.array[selectedIndex] = product)
+        .then(reassingValueFromCurrentIndexIfItsAProduct)
         .then(closePopUp)
         .catch(error => alert(error));
       break;
@@ -95,7 +96,7 @@ function applyChangesForItems() {
       getValuesFromMoneyInputs()
         .then(getValuesForMoney)
         .then(checkIfMoneyIsEmpty)
-        .then(money => currentList.array[selectedIndex] = money)
+        .then(reassingValueFromCurrentIndexIfItsMoney)
         .then(closePopUp)
         .catch(error => alert(error));
       break;
@@ -211,6 +212,25 @@ function makeWeeksOrMonthsValid(food) {
 
     return { name: food.name, price: food.price, amountPerPrice: food.amountPerPrice, amountPerDay: food.amountPerDay, weekAmount: food.weekAmount, monthAmount: food.monthAmount }
 }
+
+
+
+
+
+function reassingValueFromCurrentIndexIfItsAFood(food){
+currentList.array[selectedIndex] = new Food(food.name,food.price,food.amountPerPrice,food.amountPerDay, food.weekAmount, food.monthAmount)
+}
+
+function reassingValueFromCurrentIndexIfItsAProduct(product){
+currentList.array[selectedIndex] = new Product(product.name,product.price)
+}
+
+
+function reassingValueFromCurrentIndexIfItsMoney(money){
+currentList.array[selectedIndex] = new Product(money.price)
+}
+
+
 
 
 function applyChangesForLists() {
