@@ -245,7 +245,10 @@ function reassingValueFromCurrentIndexIfItsMoney(money) {
 
 
 function applyChangesForLists() {
-  alert('changes are being apppliieid 2');
+let name = dialog.querySelector('#name').value;
+currentList.name = name;
+displayList()
+closePopUp()
 }
 
 
