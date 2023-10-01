@@ -70,7 +70,7 @@ export class Food extends Item {
   }
 }
 
-function List(name,array = []){
+export function List(name,array = []){
   return {array,name}
 }
 
