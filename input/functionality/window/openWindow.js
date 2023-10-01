@@ -1,4 +1,4 @@
-import { createList } from './createList.js';
+import { generateContentForWindow } from './generateContentForEditWindow.js';
 
 
 const editButton = document.querySelector('#listContainer button');
@@ -13,7 +13,7 @@ editButton.addEventListener('click', generateContentAndOpenWindow);
 
 function generateContentAndOpenWindow() {
   try {
-    createList()
+    generateContentForWindow()
     openWindow(editDialog)
   }
   catch (error) {

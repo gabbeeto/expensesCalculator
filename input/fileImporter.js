@@ -13,6 +13,7 @@ import './styling/popup.css'
 import './functionality/list/listStructure.js';
 import './functionality/list/addItemsToList.js';
 import './functionality/window/openWindow.js';
+import './functionality/window/addNewList.js';
 import './functionality/display/expenseType.js';
 import './functionality/typeCalculator.js';
 import './functionality/calculate/calculate.js';

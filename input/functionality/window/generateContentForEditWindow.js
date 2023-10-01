@@ -5,7 +5,7 @@ import { displayList } from './../display/itemsOrLists.js'
 
 const dialog = document.getElementById('editPopUp');
 
-export function createList() {
+export function generateContentForWindow() {
   if (window.selectedIndex) {
     generateContentForDialog()
     addEventListenerToButtons()
@@ -78,7 +78,6 @@ function applyChangesForItems() {
   let item = currentList.array[selectedIndex];
   switch (item.type) {
     case 'food':
-      // remember to add validity in the catch in all of these 
       runPromiseToApplyValue(getValuesFromFoodInputs,getValuesForFood,checkIfFoodIsEmpty,reassingValueFromCurrentIndexIfItsAFood,true);
       break;
     case 'product':
@@ -93,6 +92,7 @@ function applyChangesForItems() {
 
 function runPromiseToApplyValue(getValuesFromInput_callback, getValuesFor_callBack, checkIfItemIsEmpty_callBack, reassingValueFromCurrentIndexIfItsA_callBack,workingWithFood = false,) {
 window.workingWithFood = workingWithFood;
+      // remember to add validity in the catch in all of these 
   getValuesFromInput_callback()
     .then(getValuesFor_callBack)
     .then(checkIfItemIsEmpty_callBack)
