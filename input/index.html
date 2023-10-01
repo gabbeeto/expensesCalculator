@@ -26,11 +26,13 @@
 
     <article id='listContainer'>
       <div>
-        <select id='itemOrListContainer'>
-          <option value="item">items</option>
-          <option value="list">lists</option>
+
+        <select id='selectList'>
+          <option value="0" selected>default</option>
         </select>
-        <button>edit</button>
+
+        <button>edit current list</button>
+        <button>edit item</button>
         <button>add new List</button>
       </div>
       <ul id="list">
@@ -46,10 +48,6 @@
         <option value="weekly">week calculator</option>
       </select>
 
-      <p>List you work on</p>
-      <select id='selectList'>
-        <option value="0">default</option>
-      </select>
     </article>
 
 
@@ -66,16 +64,16 @@
 
   </main>
 
-<dialog id='addNewListPopUp'>
-<button class='closeBtn'>close</button>
-<p>name:</p>
-<input type="text">
-<button>add</button>
-</dialog>
+  <dialog id='addNewListPopUp'>
+    <button class='closeBtn'>close</button>
+    <p>name:</p>
+    <input type="text">
+    <button>add</button>
+  </dialog>
 
 
-<dialog  id='editPopUp'>
-</dialog>
+  <dialog id='editPopUp'>
+  </dialog>
 </body>
 
 </html>

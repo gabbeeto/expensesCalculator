@@ -5,20 +5,25 @@ import { displayList } from './../display/itemsOrLists.js'
 
 const dialog = document.getElementById('editPopUp');
 
+
 export function generateContentForWindow() {
   if (window.selectedIndex) {
-    generateContentForDialog()
+    generateContentForDialogForItems()
     addEventListenerToButtons()
   } else {
     throw new Error(`you haven't selected anything`)
   }
 }
 
-function generateContentForDialog() {
-  let typeOfList = document.querySelector('#itemOrListContainer').value;
+export function generateContentForListWindow() {
+    generateContentForDialogForLists()
+    addEventListenerToButtons()
+}
+
+
+function generateContentForDialogForItems() {
   let item = currentList.array[selectedIndex];
   let selectedList = list[selectedIndex];
-  if (typeOfList == 'item') {
     switch (item.type) {
       case 'food':
         dialog.innerHTML = `
@@ -61,17 +66,16 @@ function generateContentForDialog() {
     }
     let applyButton = dialog.querySelector('#apply');
     applyButton.addEventListener('click', applyChangesForItems);
-  }
-  else {
+}
+function generateContentForDialogForLists(){
+
     dialog.innerHTML = `<button class='closeBtn'>close</button>
         <p>name:</p>
-        <input value='${selectedList.name}'type="text" id="name">
+        <input value='${currentList.name}'type="text" id="name">
         <button type='button' id='apply'>apply</button>`;
 
     let applyButton = dialog.querySelector('#apply');
     applyButton.addEventListener('click', applyChangesForLists);
-  }
-
 }
 
 function applyChangesForItems() {

@@ -109,4 +109,5 @@ function updateColor(event) {
       Money.prototype.changeColor(event.target.value);
       break;
   }
+  displayList()
 }

@@ -1,8 +1,9 @@
-import { generateContentForWindow } from './generateContentForEditWindow.js';
+import { generateContentForWindow,generateContentForListWindow } from './generateContentForEditWindow.js';
 
 
-const editButton = document.querySelector('#listContainer button');
-const addNewListButton = document.querySelector('#listContainer button:nth-of-type(2)');
+const editCurrentListButton = document.querySelector('#listContainer button');
+const editButton = document.querySelector('#listContainer button:nth-of-type(2)');
+const addNewListButton = document.querySelector('#listContainer button:nth-of-type(3)');
 
 const addNewListDialog = document.getElementById('addNewListPopUp');
 const editDialog = document.getElementById('editPopUp');
@@ -17,9 +18,21 @@ function generateContentAndOpenWindow() {
     openWindow(editDialog)
   }
   catch (error) {
-    alert(error);
+    console.log(error);
   }
 }
+
+editCurrentListButton.addEventListener('click', generateContentAndOpenWindowForList)
+function generateContentAndOpenWindowForList() {
+  try {
+    generateContentForListWindow()
+    openWindow(editDialog)
+  }
+  catch (error) {
+    console.log(error);
+  }
+}
+
 
 addNewListButton.addEventListener('click', () => openWindow(addNewListDialog));
 

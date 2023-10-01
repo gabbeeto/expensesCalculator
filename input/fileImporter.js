@@ -11,6 +11,7 @@ import './styling/popup.css'
 
 // import functionality
 import './functionality/list/listStructure.js';
+import './functionality/list/currentList.js';
 import './functionality/list/addItemsToList.js';
 import './functionality/window/openWindow.js';
 import './functionality/window/addNewList.js';
