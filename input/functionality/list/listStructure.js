@@ -19,7 +19,7 @@ class Item {
 }
 
 export class Money extends Item {
-  constructor(price, name = price , type) {
+  constructor(price, name = price, type) {
     super(type = 'money', price)
     this.name = name;
   }
@@ -56,10 +56,10 @@ export class Food extends Item {
       this.weekAmount = parseInt(monthAmount / 4);
     }
 
-    if (monthAmount){
+    if (monthAmount) {
       this.monthAmount = monthAmount;
     }
-    else{
+    else {
       this.monthAmount = parseInt(weekAmount * 4);
     }
   }
@@ -70,16 +70,49 @@ export class Food extends Item {
   }
 }
 
-export function List(name,array = []){
-  return {array,name}
+export function List(name, array = []) {
+  return { array, name }
 }
 
 
 // list section
-window.currentList = new List('default');
-window.list = [currentList];
+
+if (localStorage.list) {
+  window.list = JSON.parse(localStorage.list)
+  window.currentList = window.list[0];
+  giveItemsTheirPrototype()
+  displayList()
+}
+else {
+  window.currentList = new List('default');
+  window.list = [currentList];
+}
+
+function giveItemsTheirPrototype() {
+  for (let currentList of list) {
+    currentList.array.map(item => {
+      switch (item.type) {
+        case 'food':
+          return turnIntoItemIntoClass(item, Food)
+        case 'product':
+          return turnIntoItemIntoClass(item, Product)
+        case 'money':
+          return turnIntoItemIntoClass(item, Money)
+      }
+    })
+  }
+}
 
 
+function turnIntoItemIntoClass(item, theClass){
+item.__proto__ = theClass.prototype;
+return item;
+}
+
+
+export function updateLocalStorage() {
+  localStorage.setItem('list', JSON.stringify(window.list))
+}
 
 
 // function to push to array section

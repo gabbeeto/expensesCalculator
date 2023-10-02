@@ -1,3 +1,4 @@
+import { updateLocalStorage } from '../list/listStructure.js';
 import { selectDiv } from './../editItemOrList/selection.js'
 
 const container = document.getElementById('list');
@@ -8,9 +9,10 @@ export function displayList() {
   restartEverything();
   currentList.array.forEach(appendItems)
   list.forEach(appendLists)
+  updateLocalStorage()
 }
 
-function restartEverything(){
+function restartEverything() {
   let editButton = document.querySelector('#listContainer div + button');
   editButton.classList.remove('onSelection');
   window.selectedIndex = '';
