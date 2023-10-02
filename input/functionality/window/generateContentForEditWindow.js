@@ -229,16 +229,16 @@ function makeWeeksOrMonthsValid(food) {
 
 
 function reassingValueFromCurrentIndexIfItsAFood(food) {
-  currentList.array[selectedIndex] = new Food(food.name, food.price, food.amountPerPrice, food.amountPerDay, food.weekAmount, food.monthAmount)
+  currentList.array[selectedIndex] = Food(food.name, food.price, food.amountPerPrice, food.amountPerDay, food.weekAmount, food.monthAmount)
 }
 
 function reassingValueFromCurrentIndexIfItsAProduct(product) {
-  currentList.array[selectedIndex] = new Product(product.name, product.price)
+  currentList.array[selectedIndex] = Product(product.name, product.price)
 }
 
 
 function reassingValueFromCurrentIndexIfItsMoney(money) {
-  currentList.array[selectedIndex] = new Money(money.price)
+  currentList.array[selectedIndex] = Money(money.price)
 }
 
 

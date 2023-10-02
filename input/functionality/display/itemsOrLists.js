@@ -28,12 +28,25 @@ function appendItems(item, currentListOfItemsIndex) {
   li.addEventListener('click', selectDiv)
   let nameText = document.createElement('p');
   nameText.innerText = item.name;
-  nameText.style.color = item.color();
+  nameText.style.color = returnDifferentColorDependingOnType(item);
   nameText.dataset.index = currentListOfItemsIndex;
   container.append(li);
   li.append(nameText);
 }
 
+function returnDifferentColorDependingOnType(item) {
+  switch (item.type) {
+    case 'food':
+      return color.food;
+    case 'product':
+      return color.product;
+    case 'money':
+      return color.money;
+
+
+  }
+
+}
 
 
 function appendLists(list, currentListofListsIndex) {

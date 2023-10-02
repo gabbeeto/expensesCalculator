@@ -6,7 +6,11 @@ height:90%;
 overflow:scroll;
 }
 
+
+li{
+list-style: none;
+}
+
 #list li.selectedItem{
 outline: 2px solid orange;
-list-style: none;
 }
