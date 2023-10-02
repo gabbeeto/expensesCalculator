@@ -1,9 +1,9 @@
 import { generateContentForWindow,generateContentForListWindow } from './generateContentForEditWindow.js';
 
 
-const editCurrentListButton = document.querySelector('#listContainer button');
-const editButton = document.querySelector('#listContainer button:nth-of-type(2)');
-const addNewListButton = document.querySelector('#listContainer button:nth-of-type(3)');
+const editCurrentListButton = document.querySelector('#listContainer div button');
+const editButton = document.querySelector('#listContainer div + button');
+const addNewListButton = document.querySelector('#listContainer button:nth-of-type(2)');
 
 const addNewListDialog = document.getElementById('addNewListPopUp');
 const editDialog = document.getElementById('editPopUp');

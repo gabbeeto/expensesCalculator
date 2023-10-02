@@ -12,6 +12,10 @@ box-sizing:border-box;
 --black: black;
 --white: white;
 --green: #09FF99;
+--yellow: #F5BB00;
+--lightYellow: #EEEE9B;
+--red:#ED6464;
+--lightRed:#dc143c;
 }
 
 /* repetition section */
@@ -91,12 +95,42 @@ border-radius:12px;
 transition: background-color, color 0.7s
 }
 
+/* edit item button */
+#listContainer div + button{
+background-color: var(--red);
+bottom:0;
+right: 0;
+position:absolute;
+padding: 5px;
+border-radius:30px;
+text-transform: uppercase;
+}
+
+#listContainer div + button:hover{
+background-color: var(--lightRed);
+}
+
+#listContainer div + button.onSelection{
+background-color: var(--yellow);
+color: var(--white);
+border:2px solid var(--white);
+padding: 6px;
+border-radius:10px;
+}
+
+#listContainer div + button.onSelection:hover{
+background-color: var(--lightYellow);
+color:var(--black);
+border: 2px solid var(--black);
+}
+
 button:hover{
 background-color: var(--black);
 color:var(--white);
 border: 2px solid var(--white);
 cursor:pointer;
 }
+
 
 
 select{
@@ -121,6 +155,7 @@ color:var(--black);
 #listContainer{
 grid-row-start:-3;
 grid-row-end:-3;
+position: relative
 }
 #listContainer{
 overflow:scroll;

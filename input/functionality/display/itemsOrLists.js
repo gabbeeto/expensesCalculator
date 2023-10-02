@@ -5,11 +5,20 @@ const container = document.getElementById('list');
 let listSelect = document.querySelector('#selectList')
 
 export function displayList() {
-  container.innerHTML = '';
+  restartEverything();
   currentList.array.forEach(appendItems)
+  list.forEach(appendLists)
+}
+
+function restartEverything(){
+  let editButton = document.querySelector('#listContainer div + button');
+  editButton.classList.remove('onSelection');
+  window.selectedIndex = '';
+
+  container.innerHTML = '';
+
   listSelect = document.querySelector('#selectList');
   listSelect.innerHTML = '';
-  list.forEach(appendLists)
 }
 
 function appendItems(item, currentListOfItemsIndex) {
