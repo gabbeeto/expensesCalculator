@@ -9,8 +9,8 @@ calculateButton.addEventListener('click', calculate)
 
 
 function calculate() {
-let indexo = 0
-let result =  currentList.array.reduce((accumulator, currentItem) => {
+  let indexo = 0
+  let result = currentList.array.reduce((accumulator, currentItem) => {
     indexo += 1;
     switch (currentItem.type) {
       case 'food':
@@ -19,10 +19,9 @@ let result =  currentList.array.reduce((accumulator, currentItem) => {
       case 'money':
         return accumulator + currentItem.price;
     }
-
   }, 0);
 
-calculateSpan.innerText = result;
+  calculateSpan.innerText = result;
 }
 
 
@@ -34,11 +33,11 @@ function calculatedFood(currentFood) {
   return averageFood;
 }
 
-function getProcesure(currentFood){
-if (typeOfCalculation == 'monthly') {
-return currentFood.monthAmount
-}
-else {
-return currentFood.weekAmount
-}
+function getProcesure(currentFood) {
+  if (typeOfCalculation == 'monthly') {
+    return currentFood.monthAmount
+  }
+  else {
+    return currentFood.weekAmount
+  }
 }

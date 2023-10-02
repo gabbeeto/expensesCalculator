@@ -19,3 +19,5 @@ import './functionality/window/openChangeColorWindow.js';
 import './functionality/display/expenseType.js';
 import './functionality/typeCalculator.js';
 import './functionality/calculate/calculate.js';
+import './functionality/file/downloadFile.js';
+import './functionality/file/uploadFile.js';
