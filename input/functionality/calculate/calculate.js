@@ -9,15 +9,17 @@ calculateButton.addEventListener('click', calculate)
 
 
 function calculate() {
-
+let indexo = 0
 let result =  currentList.array.reduce((accumulator, currentItem) => {
+    indexo += 1;
     switch (currentItem.type) {
       case 'food':
         return accumulator + calculatedFood(currentItem);
       case 'product':
       case 'money':
-        return accumulator + currentItem.price(currentItem);
+        return accumulator + currentItem.price;
     }
+
   }, 0);
 
 calculateSpan.innerText = result;
