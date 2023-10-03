@@ -166,15 +166,17 @@ export function checkIfFoodIsEmpty(food) {
   checkIfEmpty(food.amountPerDay, 'the amount of food per day');
   checkIfEitherMonthOrWeekIsEmpty(food.weekAmount, food.monthAmount);
 
-
+  limitNumber(food.weekAmount, 7, 'weeks can only be 7 days longs')
+  limitNumber(food.monthAmount, 31, 'months can only be 31 days long')
 
   return { name: food.name, price: food.price, amountPerPrice: food.amountPerPrice, amountPerDay: food.amountPerDay, weekAmount: food.weekAmount, monthAmount: food.monthAmount }
 }
 function checkIfEitherMonthOrWeekIsEmpty(week, month) {
   if (checkWithoutError(week, 'week') && checkWithoutError(month, 'month')) {
-   throw new Error(`you haven't filled neither the amount of days per week nor the amount of days per the month`)
+    throw new Error(`you haven't filled neither the amount of days per week nor the amount of days per the month`)
   }
 }
+
 
 function checkWithoutError(item, name) {
   if (`${item}` == 'NaN') {
@@ -188,10 +190,19 @@ function checkWithoutError(item, name) {
   }
 
 }
+
+function limitNumber(numberToCheck, limit, message) {
+  if (Number(numberToCheck) > Number(limit)) {
+  throw new Error(message);
+  }
+}
+
+
 export function checkIfProductIsEmpty(product) {
   // check emptyness 
   checkIfEmpty(product.name, 'the name of the product');
   checkIfEmpty(product.price, 'the price of the product');
+
   return { name: product.name, price: product.price }
 }
 
@@ -199,6 +210,7 @@ export function checkIfProductIsEmpty(product) {
 export function checkIfMoneyIsEmpty(money) {
   // check emptyness 
   checkIfEmpty(money.price, 'any money');
+
   return { price: money.price }
 }
 
@@ -211,6 +223,8 @@ function checkIfEmpty(element, nameOfElementForEmptyMessage) {
     throw new Error(`you didn't fill ${nameOfElementForEmptyMessage}`);
   }
 }
+
+
 
 function makeWeeksOrMonthsValid(food) {
   if (window.workingWithFood) {
