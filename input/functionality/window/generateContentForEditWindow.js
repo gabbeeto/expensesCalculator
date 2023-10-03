@@ -16,17 +16,17 @@ export function generateContentForWindow() {
 }
 
 export function generateContentForListWindow() {
-    generateContentForDialogForLists()
-    addEventListenerToButtons()
+  generateContentForDialogForLists()
+  addEventListenerToButtons()
 }
 
 
 function generateContentForDialogForItems() {
   let item = currentList.array[selectedIndex];
   let selectedList = list[selectedIndex];
-    switch (item.type) {
-      case 'food':
-        dialog.innerHTML = `
+  switch (item.type) {
+    case 'food':
+      dialog.innerHTML = `
         <button class='closeBtn'>close</button>
         <p>name:</p>
         <input value='${item.name}'type="text" id="name">
@@ -48,55 +48,55 @@ function generateContentForDialogForItems() {
           </section>
         </div>
         <button type='button' id='apply'>apply</button>`;
-        break;
-      case 'product':
-        dialog.innerHTML = `<button class='closeBtn'>close</button>
+      break;
+    case 'product':
+      dialog.innerHTML = `<button class='closeBtn'>close</button>
         <p>name:</p>
         <input value='${item.name}'type="text" id="name">
         <p>price:</p>
         <input value='${item.price}' type="text" inputmode='decimal' id="price">
         <button type='button' id='apply'>apply</button>`;
-        break;
-      case 'money':
-        dialog.innerHTML = `<button class='closeBtn'>close</button>
+      break;
+    case 'money':
+      dialog.innerHTML = `<button class='closeBtn'>close</button>
         <p>price:</p>
         <input value='${item.price}' type="text" inputmode='decimal' id="price">
         <button type='button' id='apply'>apply</button>`;
-        break;
-    }
-    let applyButton = dialog.querySelector('#apply');
-    applyButton.addEventListener('click', applyChangesForItems);
+      break;
+  }
+  let applyButton = dialog.querySelector('#apply');
+  applyButton.addEventListener('click', applyChangesForItems);
 }
-function generateContentForDialogForLists(){
+function generateContentForDialogForLists() {
 
-    dialog.innerHTML = `<button class='closeBtn'>close</button>
+  dialog.innerHTML = `<button class='closeBtn'>close</button>
         <p>name:</p>
         <input value='${currentList.name}'type="text" id="name">
         <button type='button' id='apply'>apply</button>`;
 
-    let applyButton = dialog.querySelector('#apply');
-    applyButton.addEventListener('click', applyChangesForLists);
+  let applyButton = dialog.querySelector('#apply');
+  applyButton.addEventListener('click', applyChangesForLists);
 }
 
 function applyChangesForItems() {
   let item = currentList.array[selectedIndex];
   switch (item.type) {
     case 'food':
-      runPromiseToApplyValue(getValuesFromFoodInputs,getValuesForFood,checkIfFoodIsEmpty,reassingValueFromCurrentIndexIfItsAFood,true);
+      runPromiseToApplyValue(getValuesFromFoodInputs, getValuesForFood, checkIfFoodIsEmpty, reassingValueFromCurrentIndexIfItsAFood, true);
       break;
     case 'product':
-      runPromiseToApplyValue(getValuesFromProductInputs,getValuesForProduct,checkIfProductIsEmpty,reassingValueFromCurrentIndexIfItsAProduct);
+      runPromiseToApplyValue(getValuesFromProductInputs, getValuesForProduct, checkIfProductIsEmpty, reassingValueFromCurrentIndexIfItsAProduct);
       break;
     case 'money':
-      runPromiseToApplyValue(getValuesFromMoneyInputs,getValuesForMoney,checkIfMoneyIsEmpty,reassingValueFromCurrentIndexIfItsMoney);
+      runPromiseToApplyValue(getValuesFromMoneyInputs, getValuesForMoney, checkIfMoneyIsEmpty, reassingValueFromCurrentIndexIfItsMoney);
       break;
 
   }
 }
 
-function runPromiseToApplyValue(getValuesFromInput_callback, getValuesFor_callBack, checkIfItemIsEmpty_callBack, reassingValueFromCurrentIndexIfItsA_callBack,workingWithFood = false,) {
-window.workingWithFood = workingWithFood;
-      // remember to add validity in the catch in all of these 
+function runPromiseToApplyValue(getValuesFromInput_callback, getValuesFor_callBack, checkIfItemIsEmpty_callBack, reassingValueFromCurrentIndexIfItsA_callBack, workingWithFood = false,) {
+  window.workingWithFood = workingWithFood;
+  // remember to add validity in the catch in all of these 
   getValuesFromInput_callback()
     .then(getValuesFor_callBack)
     .then(checkIfItemIsEmpty_callBack)
@@ -158,18 +158,37 @@ function getValuesForMoney(money) {
 
 
 
-function checkIfFoodIsEmpty(food) {
+export function checkIfFoodIsEmpty(food) {
   // check emptyness 
   checkIfEmpty(food.name, 'the name of the food');
   checkIfEmpty(food.price, 'the price of the food');
   checkIfEmpty(food.amountPerPrice, 'the amount of food per price');
   checkIfEmpty(food.amountPerDay, 'the amount of food per day');
-  checkIfEmpty(food.weekAmount, 'the amount of weeks in which you eat that food ');
-  checkIfEmpty(food.monthAmount, 'the amount of months in which you eat that food ');
+  checkIfEitherMonthOrWeekIsEmpty(food.weekAmount, food.monthAmount);
+
+
+
   return { name: food.name, price: food.price, amountPerPrice: food.amountPerPrice, amountPerDay: food.amountPerDay, weekAmount: food.weekAmount, monthAmount: food.monthAmount }
 }
+function checkIfEitherMonthOrWeekIsEmpty(week, month) {
+  if (checkWithoutError(week, 'week') && checkWithoutError(month, 'month')) {
+   throw new Error(`you haven't filled neither the amount of days per week nor the amount of days per the month`)
+  }
+}
 
-function checkIfProductIsEmpty(product) {
+function checkWithoutError(item, name) {
+  if (`${item}` == 'NaN') {
+    return `you didn't fill the ${name}`;
+  }
+  else if (!`${item}`) {
+    return `you didn't fill the ${name}`;
+  }
+  else {
+    return ''
+  }
+
+}
+export function checkIfProductIsEmpty(product) {
   // check emptyness 
   checkIfEmpty(product.name, 'the name of the product');
   checkIfEmpty(product.price, 'the price of the product');
@@ -177,7 +196,7 @@ function checkIfProductIsEmpty(product) {
 }
 
 
-function checkIfMoneyIsEmpty(money) {
+export function checkIfMoneyIsEmpty(money) {
   // check emptyness 
   checkIfEmpty(money.price, 'any money');
   return { price: money.price }
@@ -194,32 +213,32 @@ function checkIfEmpty(element, nameOfElementForEmptyMessage) {
 }
 
 function makeWeeksOrMonthsValid(food) {
-  if(window.workingWithFood){
+  if (window.workingWithFood) {
 
-  let item = currentList.array[selectedIndex];
-  // check if the week or the month is false
-  let weekEqual = false;
-  let monthEqual = false;
-  if (item.weekAmount == food.weekAmount) {
-    weekEqual = true;
-  }
-  if (item.monthAmount == food.monthAmount) {
-    monthEqual = true;
-  }
+    let item = currentList.array[selectedIndex];
+    // check if the week or the month is false
+    let weekEqual = false;
+    let monthEqual = false;
+    if (item.weekAmount == food.weekAmount) {
+      weekEqual = true;
+    }
+    if (item.monthAmount == food.monthAmount) {
+      monthEqual = true;
+    }
 
-  // change the other value if one of those is false but the other one is true
-  if (weekEqual == true && monthEqual == false) {
-    food.weekAmount = parseInt(food.monthAmount / 4)
-  }
-  else if (weekEqual == false && monthEqual == true) {
-    food.monthAmount = parseInt(food.weekAmount * 4)
-  }
+    // change the other value if one of those is false but the other one is true
+    if (weekEqual == true && monthEqual == false) {
+      food.weekAmount = parseInt(food.monthAmount / 4)
+    }
+    else if (weekEqual == false && monthEqual == true) {
+      food.monthAmount = parseInt(food.weekAmount * 4)
+    }
 
-  return { name: food.name, price: food.price, amountPerPrice: food.amountPerPrice, amountPerDay: food.amountPerDay, weekAmount: food.weekAmount, monthAmount: food.monthAmount }
+    return { name: food.name, price: food.price, amountPerPrice: food.amountPerPrice, amountPerDay: food.amountPerDay, weekAmount: food.weekAmount, monthAmount: food.monthAmount }
 
 
   }
-  else{
+  else {
     return food;
   }
 }
@@ -245,10 +264,10 @@ function reassingValueFromCurrentIndexIfItsMoney(money) {
 
 
 function applyChangesForLists() {
-let name = dialog.querySelector('#name').value;
-currentList.name = name;
-displayList()
-closePopUp()
+  let name = dialog.querySelector('#name').value;
+  currentList.name = name;
+  displayList()
+  closePopUp()
 }
 
 

@@ -17,7 +17,6 @@ else {
 
 
 // class section
-
 export function Money(price, name = price, type = 'money') {
   return { price, name, type }
 }

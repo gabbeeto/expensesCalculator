@@ -42,10 +42,7 @@ function returnDifferentColorDependingOnType(item) {
       return color.product;
     case 'money':
       return color.money;
-
-
   }
-
 }
 
 
