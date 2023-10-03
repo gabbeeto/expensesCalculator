@@ -25,22 +25,22 @@ export function displayContentForType(targetValue) {
 
 function generateFood() {
   expenseContentContainer.innerHTML = ` <p>name:</p>
-<input type="text" id="name">
+<input type="text" id="name" required>
 <p>price:</p>
-<input type="text" inputmode='decimal' id="price">
+<input type="text"  inputmode='decimal' id="price" required>
 <p>amount of food per price:</p>
-<input type="text" inputmode='numeric' id="amountPerPrice">
+<input type="text" inputmode='numeric' id="amountPerPrice" required>
 <p>amount of food per day:</p>
-<input type="text" inputmode='numeric' id="amountPerDay">
+<input type="text" inputmode='numeric' id="amountPerDay" required>
 <div>
   <section>
     <p>amount of days per month: <br> <span>(you eat)</span></p>
-    <input type="text" inputmode='numeric' id="monthAmount">
+    <input type="text"  inputmode='numeric' id="monthAmount"  required >
   </section>
   <p>or</p>
   <section>
     <p>amount of days per week: <br> <span>(you eat)</span></p>
-    <input type="text" inputmode='numeric' id="weekAmount">
+    <input type="text"  inputmode='numeric' id="weekAmount" required >
   </section>
 </div>
 <button type='button' id='apply'>apply</button>
@@ -63,9 +63,9 @@ function generateFood() {
 
 function generateProduct() {
   expenseContentContainer.innerHTML = ` <p>name:</p>
-<input type="text" id="name">
+<input type="text" id="name" required>
 <p>price:</p>
-<input type="text" inputmode='numeric' id="price">
+<input type="text" inputmode='numeric' id="price" required>
 <button type='button' id='apply'>apply</button>
 `
 
@@ -75,7 +75,7 @@ function generateProduct() {
 
 function generateMoney() {
   expenseContentContainer.innerHTML = ` <p>money:</p>
-<input type="text" inputmode='numeric' id="price">
+<input type="text" inputmode='numeric' id="price" required>
 <button type='button' id='apply'>apply</button>`
   document.getElementById('apply').addEventListener('click', addMoneyToTheList)
 }

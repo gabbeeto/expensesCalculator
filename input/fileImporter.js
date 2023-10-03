@@ -21,3 +21,4 @@ import './functionality/typeCalculator.js';
 import './functionality/calculate/calculate.js';
 import './functionality/file/downloadFile.js';
 import './functionality/file/uploadFile.js';
+import './functionality/inputCheck.js';

@@ -215,7 +215,7 @@ export function checkIfMoneyIsEmpty(money) {
 }
 
 
-function checkIfEmpty(element, nameOfElementForEmptyMessage) {
+export function checkIfEmpty(element, nameOfElementForEmptyMessage) {
   if (`${element}` == 'NaN') {
     throw new Error(`you didn't fill ${nameOfElementForEmptyMessage}`);
   }
