@@ -15,7 +15,7 @@ export function addFoodToTheList() {
       monthAmount: getNumberOf('monthAmount'),
     }
     checkIfFoodIsEmpty(food)
-    pushToArrayAndDisplayList(Food(food.name, food.price, amountPerPrice, amountPerPrice, weekAmount, monthAmount))
+    pushToArrayAndDisplayList(Food(food.name, food.price, food.amountPerPrice, food.amountPerPrice, food.weekAmount, food.monthAmount))
   }
   catch (error) {
     alert(error)

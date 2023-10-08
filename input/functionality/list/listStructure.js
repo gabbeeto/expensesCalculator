@@ -78,6 +78,7 @@ export function updateLocalStorage() {
 // function to push to array section
 
 export function pushToArrayAndDisplayList(el) {
+  console.log(el)
   currentList.array.push(el);
   displayList()
   displayContentForType()

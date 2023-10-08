@@ -3,6 +3,7 @@ import { checkIfEmpty } from './window/generateContentForEditWindow.js'
 
 export function generateEventListenerForInput() {
   for (let input of document.querySelectorAll(`form input[type='text']`)) {
+
     switch (document.querySelector('article:first-of-type select').value) {
       case 'food':
         input.addEventListener('change', checkIfFoodValid)
@@ -20,10 +21,9 @@ export function generateEventListenerForInput() {
 generateEventListenerForInput()
 
 function checkIfFoodValid() {
-  console.log(this);
   let item = this.value
   try {
-    checkIfEmpty(item,);
+    checkIfEmpty(item);
   }
   catch (error) {
     console.log(error)
@@ -32,10 +32,9 @@ function checkIfFoodValid() {
 
 
 function checkIfProductOrMoneyValid() {
-  console.log(this);
   let item = this.value
   try {
-    checkIfEmpty(item,);
+    checkIfEmpty(item);
   }
   catch (error) {
     console.log(error)
