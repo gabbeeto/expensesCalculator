@@ -1,5 +1,5 @@
 import { updateLocalStorage } from '../list/listStructure.js';
-import { selectDiv } from './../editItemOrList/selection.js'
+import { selectDiv } from './../editItemOrList/selection.js';
 
 const container = document.getElementById('list');
 
@@ -10,6 +10,8 @@ export function displayList() {
   currentList.array.forEach(appendItems)
   list.forEach(appendLists)
   updateLocalStorage()
+  const calculateSpan = document.querySelector(`#resultContent span`);
+  calculateSpan.innerText = '';
 }
 
 function restartEverything() {

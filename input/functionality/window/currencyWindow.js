@@ -1,3 +1,5 @@
+import {displayList} from './../display/itemsOrLists.js'
+
 const currencyButton = document.getElementById('currencyButton');
 const currencyDialog = document.getElementById('currencyPopUp');
 currencyButton.addEventListener('click', changeCurrency)
@@ -7,13 +9,15 @@ async function changeCurrency() {
 
   let transformedCurrency = currencyDialog.querySelectorAll('input')[1].value
   let url = new URL(`https://cdn.jsdelivr.net/`)
+  
   url.pathname = `gh/fawazahmed0/currency-api@1/latest/currencies/${transformedCurrency}/${originalCurrency}.json`
+  alert(url)
 
   let fetchResponse = await fetch(url)
   let fetchData = await fetchResponse.json()
   let currencyValue = getCurrency(fetchData)
   iterateAndChangePrices(currencyValue)
-
+  displayList()
 }
 
 

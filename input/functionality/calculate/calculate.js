@@ -8,7 +8,7 @@ calculateButton.addEventListener('click', calculate)
 
 
 
-function calculate() {
+ function calculate() {
   let indexo = 0
   let result = currentList.array.reduce((accumulator, currentItem) => {
     indexo += 1;
@@ -21,7 +21,7 @@ function calculate() {
     }
   }, 0);
 
-  calculateSpan.innerText = result;
+  calculateSpan.innerText = result.toFixed(2);
 }
 
 
