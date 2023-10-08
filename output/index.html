@@ -5,7 +5,7 @@
   <title>expenses calculator</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<script defer src="main-6b9872374e24a9149500.js"></script></head>
+<script defer src="main-48a35b8d94dfc313f63c.js"></script></head>
 
 <body>
   <header>
@@ -21,9 +21,9 @@
         <option value="product">product</option>
         <option value="money">money</option>
       </select>
-        <button>change colors</button>
+      <button>change colors</button>
       <button>download file</button>
-        <input type="file" name="" id="">
+      <input type="file" name="" id="">
     </article>
 
     <article id='listContainer'>
@@ -36,7 +36,7 @@
         <button>edit current list</button>
         <button>add new List</button>
       </div>
-        <button>edit</button>
+      <button>edit</button>
       <ul id="list">
 
       </ul>
@@ -49,6 +49,8 @@
         <option value="monthly">month calculator</option>
         <option value="weekly">week calculator</option>
       </select>
+
+      <button>change Currency</button>
 
     </article>
 
@@ -74,23 +76,40 @@
   <dialog id='editPopUp'>
   </dialog>
 
-    <dialog id='colorPopUp'>
+
+
+  <dialog id='colorPopUp'>
     <button class='closeBtn'>close</button>
-      <ul>
-        <li>
-          <p>food:</p>
-          <input type="color">
-        </li>
-        <li>
-          <p>product:</p>
-          <input type="color">
-        </li>
-        <li>
-          <p>money:</p>
-          <input type="color">
-        </li>
-      </ul>
-      </dialog>
+    <ul>
+      <li>
+        <p>food:</p>
+        <input type="color">
+      </li>
+      <li>
+        <p>product:</p>
+        <input type="color">
+      </li>
+      <li>
+        <p>money:</p>
+        <input type="color">
+      </li>
+    </ul>
+  </dialog>
+
+  <dialog id='currencyPopUp'>
+      <button class='closeBtn'>close</button>
+    <div>
+      <p>from:</p>
+      <input type="text">
+    </div>
+    <div>
+      <p>to:</p>
+      <input type="text">
+    </div>
+    <button id='currencyButton'>change Currency</button>
+  </dialog>
+
+
 </body>
 
 </html>

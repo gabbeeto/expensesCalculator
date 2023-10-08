@@ -16,6 +16,7 @@ import './functionality/list/addItemsToList.js';
 import './functionality/window/openWindow.js';
 import './functionality/window/addNewList.js';
 import './functionality/window/openChangeColorWindow.js';
+import './functionality/window/currencyWindow.js';
 import './functionality/display/expenseType.js';
 import './functionality/typeCalculator.js';
 import './functionality/calculate/calculate.js';
