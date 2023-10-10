@@ -72,10 +72,14 @@ function generateContentForDialogForLists() {
   dialog.innerHTML = `<button class='closeBtn'>close</button>
         <p>name:</p>
         <input value='${currentList.name}'type="text" id="name">
+        <button type='button' id='delete'>delete list</button>
         <button type='button' id='apply'>apply</button>`;
 
+// not using getElementById because you can't select inside the dialog property with getElementById
   let applyButton = dialog.querySelector('#apply');
+  let deleteButton = dialog.querySelector('#delete');
   applyButton.addEventListener('click', applyChangesForLists);
+  deleteButton.addEventListener('click', deleteList);
 }
 
 function applyChangesForItems() {
@@ -285,3 +289,8 @@ function applyChangesForLists() {
 }
 
 
+function deleteList(){
+alert('this works')
+
+
+}
