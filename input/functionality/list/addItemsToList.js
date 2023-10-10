@@ -1,6 +1,6 @@
 import { pushToArrayAndDisplayList, Money, Product, Food } from './listStructure.js'
 import { checkIfFoodIsEmpty, checkIfProductIsEmpty, checkIfMoneyIsEmpty } from './../window/generateContentForEditWindow.js'
-
+import { displayError } from './../display/error.js';
 
 export function addFoodToTheList() {
   let nameValue = document.getElementById('name').value;
@@ -18,7 +18,7 @@ export function addFoodToTheList() {
     pushToArrayAndDisplayList(Food(food.name, food.price, food.amountPerPrice, food.amountPerPrice, food.weekAmount, food.monthAmount))
   }
   catch (error) {
-    alert(error)
+    displayError(error)
   }
 }
 
@@ -36,7 +36,7 @@ export function addProductToTheList() {
     pushToArrayAndDisplayList(Product(product.name, product.price))
   }
   catch (error) {
-    alert(error)
+    displayError(error)
   }
 
 }
@@ -49,7 +49,7 @@ export function addMoneyToTheList() {
     pushToArrayAndDisplayList(Money(money.price))
   }
   catch (error) {
-    alert(error)
+    displayError(error)
   }
 }
 

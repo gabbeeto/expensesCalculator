@@ -1,5 +1,5 @@
 import { checkIfEmpty } from './window/generateContentForEditWindow.js'
-
+import { displayError } from './display/error.js';
 
 export function generateEventListenerForInput() {
   for (let input of document.querySelectorAll(`form input[type='text']`)) {
@@ -26,7 +26,7 @@ function checkIfFoodValid() {
     checkIfEmpty(item);
   }
   catch (error) {
-    console.log(error)
+    displayError(error)
   }
 }
 

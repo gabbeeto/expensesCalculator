@@ -1,7 +1,8 @@
 import { addEventListenerToButtons, closePopUp } from './openWindow.js';
 import { transformToNumber } from './../list/addItemsToList.js';
 import { Food, Product, Money } from './../list/listStructure.js';
-import { displayList } from './../display/itemsOrLists.js'
+import { displayList } from './../display/itemsOrLists.js';
+import { displayError } from './../display/error.js';
 
 const dialog = document.getElementById('editPopUp');
 
@@ -108,7 +109,7 @@ function runPromiseToApplyValue(getValuesFromInput_callback, getValuesFor_callBa
     .then(reassingValueFromCurrentIndexIfItsA_callBack)
     .then(displayList)
     .then(closePopUp)
-    .catch(error => console.log(error));
+    .catch(error => displayError(error));
 }
 
 
@@ -302,6 +303,6 @@ function deleteList() {
     closePopUp()
   }
   catch (error) {
-    alert(error)
+    displayError(error)
   }
 }

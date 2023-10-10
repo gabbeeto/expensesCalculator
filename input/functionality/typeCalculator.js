@@ -19,5 +19,4 @@ window.typeOfCalculation = 'daily';
 }
 
 displayContentForType(typeSelector.value);
-
 }

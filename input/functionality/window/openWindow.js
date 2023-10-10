@@ -1,4 +1,5 @@
 import { generateContentForWindow, generateContentForListWindow } from './generateContentForEditWindow.js';
+import { displayError } from './../display/error.js';
 
 
 const editCurrentListButton = document.querySelector('#listContainer div button');
@@ -32,7 +33,7 @@ function generateContentAndOpenWindowForList() {
     openWindow(editDialog)
   }
   catch (error) {
-    console.log(error);
+    displayError(error);
   }
 }
 

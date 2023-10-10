@@ -19,10 +19,8 @@ function selectParent(event) {
 function removeClasses() {
   let onSelectionClass = document.querySelector('.onSelection')
   if(onSelectionClass){
-
   onSelectionClass.classList.remove('onSelection')
   }
   let selectedItems = document.querySelectorAll('.selectedItem');
   selectedItems.forEach(element => element.classList.remove('selectedItem'));
-
 }
