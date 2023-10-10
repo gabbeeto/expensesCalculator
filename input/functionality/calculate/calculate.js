@@ -21,6 +21,8 @@ calculateButton.addEventListener('click', calculate)
     }
   }, 0);
 
+  console.log(result)
+  result = result * window.valueToMultiply
   calculateSpan.innerText = result.toFixed(2);
 }
 

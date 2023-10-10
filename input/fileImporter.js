@@ -1,3 +1,6 @@
+document.getElementById(`percentageIncrease`).value = 0;
+
+window.valueToMultiply = 1;
 
 // import styles
 import './styling/style.css'
@@ -20,6 +23,7 @@ import './functionality/window/currencyWindow.js';
 import './functionality/display/expenseType.js';
 import './functionality/typeCalculator.js';
 import './functionality/calculate/calculate.js';
+import './functionality/calculate/percentage.js';
 import './functionality/file/downloadFile.js';
 import './functionality/file/uploadFile.js';
 import './functionality/inputCheck.js';
