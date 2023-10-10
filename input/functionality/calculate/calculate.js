@@ -39,7 +39,10 @@ function getProcesure(currentFood) {
   if (typeOfCalculation == 'monthly') {
     return currentFood.monthAmount
   }
-  else {
+  else if(typeOfCalculation == 'weekly') {
     return currentFood.weekAmount
+  }
+  else{
+    return currentFood.weekAmount / 7;
   }
 }

@@ -11,8 +11,11 @@ function changeTypeOfCalculation(){
 if(typeSelect.value == 'monthly'){
 window.typeOfCalculation = 'monthly';
 }
-else{
+else if(typeSelect.value == 'weekly'){
 window.typeOfCalculation = 'weekly';
+}
+else{
+window.typeOfCalculation = 'daily';
 }
 
 displayContentForType(typeSelector.value);
