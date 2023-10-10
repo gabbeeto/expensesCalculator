@@ -86,7 +86,7 @@ gap: 7px;
 
 }
 
-button{
+button,input[type='file']::file-selector-button{
 background-color: var(--white);
 color:var(--black);
 border: 2px solid var(--black);
@@ -124,7 +124,7 @@ color:var(--black);
 border: 2px solid var(--black);
 }
 
-button:hover{
+button:hover, input[type='file']::file-selector-button:hover{
 background-color: var(--black);
 color:var(--white);
 border: 2px solid var(--white);
@@ -140,18 +140,21 @@ border: 2px solid var(--black);
 padding:6px;
 }
 
-input[type='text']{
+input[type='text'],input[type='number']{
 padding:3px;
 border-radius:4px;
 background-color:var(--white);
 border:2px solid var(--black);
 color:var(--black);
-}
-
-input[type='text']{
 outline: 0px solid transparent;
+}
+
+input[type='number']{
+padding: 5px;
+appearance:textfield;
 
 }
+
 
 input[type='text']:invalid:hover{
 background-color:var(--red)
