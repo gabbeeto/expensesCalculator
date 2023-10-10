@@ -75,7 +75,7 @@ function generateContentForDialogForLists() {
         <button type='button' id='delete'>delete list</button>
         <button type='button' id='apply'>apply</button>`;
 
-// not using getElementById because you can't select inside the dialog property with getElementById
+  // not using getElementById because you can't select inside the dialog property with getElementById
   let applyButton = dialog.querySelector('#apply');
   let deleteButton = dialog.querySelector('#delete');
   applyButton.addEventListener('click', applyChangesForLists);
@@ -197,7 +197,7 @@ function checkWithoutError(item, name) {
 
 function limitNumber(numberToCheck, limit, message) {
   if (Number(numberToCheck) > Number(limit)) {
-  throw new Error(message);
+    throw new Error(message);
   }
 }
 
@@ -289,8 +289,19 @@ function applyChangesForLists() {
 }
 
 
-function deleteList(){
-alert('this works')
-
-
+function deleteList() {
+  try {
+    let listSelect = document.getElementById('selectList');
+    let listIndex = Number(listSelect.value);
+    if (window.list.length == 1) {
+      throw new Error(`you can't delete this because it's the only list`)
+    }
+    window.list.splice(listIndex, 1)
+    listSelect.value = 0;
+    displayList()
+    closePopUp()
+  }
+  catch (error) {
+    alert(error)
+  }
 }
