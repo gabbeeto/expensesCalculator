@@ -48,7 +48,7 @@ function generateFood() {
 
   document.getElementById('apply').addEventListener('click', addFoodToTheList)
 
-  if (window.typeOfCalculation == 'monthly') {
+  if (window.typeOfCalculation == 'monthly' || window.typeOfCalculation == 'yearly') {
 
     selectedSection = expenseContentContainer.querySelector('section');
   }
