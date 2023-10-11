@@ -11,6 +11,7 @@ else {
   window.color = {
     food: 'violet',
     product: 'blue',
+    regProduct: 'yellow',
     money: 'green',
   }
 }
@@ -27,7 +28,7 @@ export function Product(name, price, type = 'product') {
   return { name, price, type }
 }
 
-export function RegProduct(name, price, amountPerYear, type = 'RegProduct') {
+export function RegProduct(name, price, amountPerYear, type = 'regProduct') {
   return { name, price, amountPerYear, type }
 }
 

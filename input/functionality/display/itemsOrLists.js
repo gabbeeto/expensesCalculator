@@ -42,8 +42,11 @@ function returnDifferentColorDependingOnType(item) {
       return color.food;
     case 'product':
       return color.product;
+    case 'regProduct':
+      return color.regProduct;
     case 'money':
       return color.money;
+
   }
 }
 
