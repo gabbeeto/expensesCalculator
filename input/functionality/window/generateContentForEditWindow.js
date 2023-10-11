@@ -1,6 +1,6 @@
 import { addEventListenerToButtons, closePopUp } from './openWindow.js';
 import { transformToNumber } from './../list/addItemsToList.js';
-import { Food, Product,RegProduct, Money } from './../list/listStructure.js';
+import { Food, Product, RegProduct, Money } from './../list/listStructure.js';
 import { displayList } from './../display/itemsOrLists.js';
 import { displayError } from './../display/error.js';
 
@@ -64,6 +64,10 @@ function generateContentForDialogForItems() {
         <input value='${item.name}'type="text" id="name">
         <p>price:</p>
         <input value='${item.price}' type="text" inputmode='decimal' id="price">
+        <p>amount of products:</p>
+        <input type="text" inputmode='numeric' id="amountOfRegProducts" value='${item.amountOfRegProducts}' required>
+        <p>amount of months per year:</p>
+        <input type="text" inputmode='numeric' id="amountPerYear" value='${item.amountPerYear}' required>
         <button type='button' id='apply'>apply</button>`;
       break;
     case 'money':
@@ -143,8 +147,9 @@ async function getValuesFromProductInputs() {
 async function getValuesFromRegProductInputs() {
   let name = dialog.querySelector('#name').value;
   let price = dialog.querySelector('#price').value;
-  let amountPerYear = dialog.querySelector('#price').value;
-  return { name, price };
+  let amountPerYear = dialog.querySelector('#amountPerYear').value;
+  let amountOfRegProducts = dialog.querySelector('#amountOfRegProducts').value;
+  return { name, price, amountPerYear, amountOfRegProducts };
 }
 
 async function getValuesFromMoneyInputs() {
@@ -175,7 +180,8 @@ function getValuesForRegProduct(product) {
   let name = product.name;
   let price = transformToNumber(product.price);
   let amountPerYear = transformToNumber(product.amountPerYear);
-  return { name, price }
+  let amountOfRegProducts = transformToNumber(product.amountOfRegProducts);
+  return { name, price, amountPerYear, amountOfRegProducts }
 }
 
 
@@ -241,9 +247,10 @@ export function checkIfRegProductIsEmpty(product) {
   // check emptyness 
   checkIfEmpty(product.name, 'the name of the product');
   checkIfEmpty(product.price, 'the price of the product');
-  checkIfEmpty(product.amountPerYear, 'the price of the product');
+  checkIfEmpty(product.amountPerYear, 'the amount of months per year of the product');
+  checkIfEmpty(product.amountOfRegProducts, 'the amount of product');
 
-  return { name: product.name, price: product.price }
+  return { name: product.name, price: product.price, amountPerYear: product.amountOfRegProducts, amountOfRegProducts: product.amountOfRegProducts }
 }
 
 
@@ -310,7 +317,8 @@ function reassingValueFromCurrentIndexIfItsAProduct(product) {
 }
 
 function reassingValueFromCurrentIndexIfItsARegProduct(product) {
-  currentList.array[selectedIndex] = RegProduct(product.name, product.price,product.amountPerYear)
+  let { name, price, amountPerYear, amountOfRegProducts } = product;
+  currentList.array[selectedIndex] = RegProduct(name, price, amountPerYear, amountOfRegProducts)
 }
 
 

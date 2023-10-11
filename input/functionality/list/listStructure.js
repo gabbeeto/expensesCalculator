@@ -28,8 +28,8 @@ export function Product(name, price, type = 'product') {
   return { name, price, type }
 }
 
-export function RegProduct(name, price, amountPerYear, type = 'regProduct') {
-  return { name, price, amountPerYear, type }
+export function RegProduct(name, price, amountPerYear,amountOfRegProducts, type = 'regProduct') {
+  return { name, price, amountPerYear, amountOfRegProducts, type }
 }
 
 

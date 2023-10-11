@@ -54,7 +54,8 @@ function getProcesure(currentFood) {
 
 
 function calculatedRegProduct(currentRegularProduct) {
-  let newPrice = currentRegularProduct.price * currentRegularProduct.amountOfRegProducts
+  console.log(currentRegularProduct)
+  let newPrice = currentRegularProduct.price * currentRegularProduct.amountOfProducts
   if (typeOfCalculation == 'yearly') {
     return newPrice * currentRegularProduct.amountPerYear
   }

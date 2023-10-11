@@ -49,9 +49,10 @@ export function addRegProductToTheList() {
       name: nameValue,
       price: getNumberOf('price'),
       amountPerYear: getNumberOf('amountPerYear'),
+      amountOfRegProducts: getNumberOf('amountPerYear'),
     }
     checkIfRegProductIsEmpty(product)
-    pushToArrayAndDisplayList(RegProduct(product.name, product.price,product.amountPerYear))
+    pushToArrayAndDisplayList(RegProduct(product.name, product.price,product.amountPerYear,product.amountOfRegProducts))
   }
   catch (error) {
     displayError(error)

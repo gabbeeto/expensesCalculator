@@ -81,8 +81,10 @@ function generateRegProduct() {
 <input type="text" id="name" required>
 <p>price:</p>
 <input type="text" inputmode='numeric' id="price" required>
+<p>amount of products:</p>
+<input type="text" inputmode='numeric' id="amountOfRegProducts" value='1' required>
 <p>amount of months per year:</p>
-<input type="text" inputmode='numeric' value='12'  id='amountPerYear' required>
+<input type="text" inputmode='numeric' id="amountPerYear" value='12' required>
 <button type='button' id='apply'>apply</button>
 `
   document.getElementById('apply').addEventListener('click', addRegProductToTheList)
