@@ -1,5 +1,5 @@
-import { pushToArrayAndDisplayList, Money, Product, Food } from './listStructure.js'
-import { checkIfFoodIsEmpty, checkIfProductIsEmpty, checkIfMoneyIsEmpty } from './../window/generateContentForEditWindow.js'
+import { pushToArrayAndDisplayList, Money, Product,RegProduct, Food } from './listStructure.js'
+import { checkIfFoodIsEmpty, checkIfProductIsEmpty, checkIfRegProductIsEmpty ,checkIfMoneyIsEmpty } from './../window/generateContentForEditWindow.js'
 import { displayError } from './../display/error.js';
 
 export function addFoodToTheList() {
@@ -40,6 +40,24 @@ export function addProductToTheList() {
   }
 
 }
+
+
+export function addRegProductToTheList() {
+  let nameValue = document.getElementById('name').value;
+  try {
+    let product = {
+      name: nameValue,
+      price: getNumberOf('price'),
+      amountPerYear: getNumberOf('amountPerYear'),
+    }
+    checkIfRegProductIsEmpty(product)
+    pushToArrayAndDisplayList(RegProduct(product.name, product.price,product.amountPerYear))
+  }
+  catch (error) {
+    displayError(error)
+  }
+}
+
 
 
 export function addMoneyToTheList() {

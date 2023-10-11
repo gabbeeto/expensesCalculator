@@ -212,6 +212,16 @@ export function checkIfProductIsEmpty(product) {
 }
 
 
+export function checkIfRegProductIsEmpty(product) {
+  // check emptyness 
+  checkIfEmpty(product.name, 'the name of the product');
+  checkIfEmpty(product.price, 'the price of the product');
+  checkIfEmpty(product.amountPerYear, 'the price of the product');
+
+  return { name: product.name, price: product.price }
+}
+
+
 export function checkIfMoneyIsEmpty(money) {
   // check emptyness 
   checkIfEmpty(money.price, 'any money');

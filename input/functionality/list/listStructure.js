@@ -27,11 +27,15 @@ export function Product(name, price, type = 'product') {
   return { name, price, type }
 }
 
+export function RegProduct(name, price, amountPerYear, type = 'RegProduct') {
+  return { name, price, amountPerYear, type }
+}
+
 
 
 export function Food(name, price, amountPerPrice, amountPerDay, weekAmount, monthAmount, type = 'food') {
-let myWeekAmount;
-let myMonthAmount;
+  let myWeekAmount;
+  let myMonthAmount;
   if (weekAmount) {
     myWeekAmount = weekAmount;
   }

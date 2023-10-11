@@ -1,4 +1,4 @@
-import { addFoodToTheList, addMoneyToTheList, addProductToTheList } from './../list/addItemsToList.js';
+import { addFoodToTheList, addMoneyToTheList, addProductToTheList, addRegProductToTheList } from './../list/addItemsToList.js';
 
 let selectedSection;
 const typeSelector = document.querySelector('article:first-of-type select');
@@ -12,10 +12,13 @@ export function displayContentForType(targetValue) {
 
   switch (targetValue) {
     case 'food':
-      generateFood()
+      generateFood();
       break;
     case 'product':
-      generateProduct()
+      generateProduct();
+      break;
+    case 'regProduct':
+      generateRegProduct();
       break;
     case 'money':
       generateMoney()
@@ -72,6 +75,20 @@ function generateProduct() {
   document.getElementById('apply').addEventListener('click', addProductToTheList)
 
 }
+
+function generateRegProduct() {
+  expenseContentContainer.innerHTML = ` <p>name:</p>
+<input type="text" id="name" required>
+<p>price:</p>
+<input type="text" inputmode='numeric' id="price" required>
+<p>amount per year:</p>
+<input type="text" inputmode='numeric' value='12'  id='amountPerYear' required>
+<button type='button' id='apply'>apply</button>
+`
+  document.getElementById('apply').addEventListener('click', addRegProductToTheList)
+
+}
+
 
 function generateMoney() {
   expenseContentContainer.innerHTML = ` <p>money:</p>
