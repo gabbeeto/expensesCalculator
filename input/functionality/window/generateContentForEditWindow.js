@@ -1,6 +1,6 @@
 import { addEventListenerToButtons, closePopUp } from './openWindow.js';
 import { transformToNumber } from './../list/addItemsToList.js';
-import { Food, Product, Money } from './../list/listStructure.js';
+import { Food, Product,RegProduct, Money } from './../list/listStructure.js';
 import { displayList } from './../display/itemsOrLists.js';
 import { displayError } from './../display/error.js';
 
@@ -58,6 +58,14 @@ function generateContentForDialogForItems() {
         <input value='${item.price}' type="text" inputmode='decimal' id="price">
         <button type='button' id='apply'>apply</button>`;
       break;
+    case 'regProduct':
+      dialog.innerHTML = `<button class='closeBtn'>close</button>
+        <p>name:</p>
+        <input value='${item.name}'type="text" id="name">
+        <p>price:</p>
+        <input value='${item.price}' type="text" inputmode='decimal' id="price">
+        <button type='button' id='apply'>apply</button>`;
+      break;
     case 'money':
       dialog.innerHTML = `<button class='closeBtn'>close</button>
         <p>price:</p>
@@ -68,6 +76,7 @@ function generateContentForDialogForItems() {
   let applyButton = dialog.querySelector('#apply');
   applyButton.addEventListener('click', applyChangesForItems);
 }
+
 function generateContentForDialogForLists() {
 
   dialog.innerHTML = `<button class='closeBtn'>close</button>
@@ -92,10 +101,12 @@ function applyChangesForItems() {
     case 'product':
       runPromiseToApplyValue(getValuesFromProductInputs, getValuesForProduct, checkIfProductIsEmpty, reassingValueFromCurrentIndexIfItsAProduct);
       break;
+    case 'regProduct':
+      runPromiseToApplyValue(getValuesFromRegProductInputs, getValuesForRegProduct, checkIfRegProductIsEmpty, reassingValueFromCurrentIndexIfItsARegProduct);
+      break;
     case 'money':
       runPromiseToApplyValue(getValuesFromMoneyInputs, getValuesForMoney, checkIfMoneyIsEmpty, reassingValueFromCurrentIndexIfItsMoney);
       break;
-
   }
 }
 
@@ -129,6 +140,12 @@ async function getValuesFromProductInputs() {
   return { name, price };
 }
 
+async function getValuesFromRegProductInputs() {
+  let name = dialog.querySelector('#name').value;
+  let price = dialog.querySelector('#price').value;
+  let amountPerYear = dialog.querySelector('#price').value;
+  return { name, price };
+}
 
 async function getValuesFromMoneyInputs() {
   let price = dialog.querySelector('#price').value;
@@ -150,6 +167,14 @@ function getValuesForFood(food) {
 function getValuesForProduct(product) {
   let name = product.name;
   let price = transformToNumber(product.price);
+  return { name, price }
+}
+
+
+function getValuesForRegProduct(product) {
+  let name = product.name;
+  let price = transformToNumber(product.price);
+  let amountPerYear = transformToNumber(product.amountPerYear);
   return { name, price }
 }
 
@@ -282,6 +307,10 @@ function reassingValueFromCurrentIndexIfItsAFood(food) {
 
 function reassingValueFromCurrentIndexIfItsAProduct(product) {
   currentList.array[selectedIndex] = Product(product.name, product.price)
+}
+
+function reassingValueFromCurrentIndexIfItsARegProduct(product) {
+  currentList.array[selectedIndex] = RegProduct(product.name, product.price,product.amountPerYear)
 }
 
 

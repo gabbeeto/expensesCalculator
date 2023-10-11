@@ -81,7 +81,7 @@ function generateRegProduct() {
 <input type="text" id="name" required>
 <p>price:</p>
 <input type="text" inputmode='numeric' id="price" required>
-<p>amount per year:</p>
+<p>amount of months per year:</p>
 <input type="text" inputmode='numeric' value='12'  id='amountPerYear' required>
 <button type='button' id='apply'>apply</button>
 `

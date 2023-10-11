@@ -8,13 +8,15 @@ calculateButton.addEventListener('click', calculate)
 
 
 
- function calculate() {
+function calculate() {
   let indexo = 0
   let result = currentList.array.reduce((accumulator, currentItem) => {
     indexo += 1;
     switch (currentItem.type) {
       case 'food':
         return accumulator + calculatedFood(currentItem);
+      case 'regProduct':
+        return accumulator + calculatedRegProduct(currentItem);
       case 'product':
       case 'money':
         return accumulator + currentItem.price;
@@ -39,10 +41,29 @@ function getProcesure(currentFood) {
   if (typeOfCalculation == 'monthly') {
     return currentFood.monthAmount
   }
-  else if(typeOfCalculation == 'weekly') {
+  else if (typeOfCalculation == 'weekly') {
     return currentFood.weekAmount
   }
-  else{
+  else if (typeOfCalculation == 'daily') {
     return currentFood.weekAmount / 7;
+  }
+  else {
+    return currentFood.monthAmount * 12;
+  }
+}
+
+
+function calculatedRegProduct(currentRegularProduct) {
+  if (typeOfCalculation == 'yearly') {
+    return currentRegularProduct.price * currentRegularProduct.amountPerYear
+  }
+  else if (typeOfCalculation == 'weekly') {
+    return currentRegularProduct.price / 4;
+  }
+  else if(typeOfCalculation == 'daily'){
+    return currentRegularProduct.price / 31;
+  }
+  else {
+    return currentRegularProduct.price;
   }
 }
