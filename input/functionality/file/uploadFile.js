@@ -10,7 +10,9 @@ function updateStructure() {
 
   reader.addEventListener('load', (event) => {
 
-    window.list = JSON.parse(event.target.result)
+    let listAndColor = JSON.parse(event.target.result)
+    window.list = listAndColor[0];
+    window.color = listAndColor[1];
     currentList = list[0];
     displayList()
   });

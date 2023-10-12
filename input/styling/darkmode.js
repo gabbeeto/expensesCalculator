@@ -1,8 +1,9 @@
+
 const html = document.querySelector('html');
 const darkModeButton = document.querySelector('header button')
 darkModeButton.addEventListener('click', switchToDarkMode)
 
-const isDarkModeEnabled = matchMedia('(prefers-color-scheme: dark)').matches
+let isDarkModeEnabled = matchMedia('(prefers-color-scheme: dark)').matches
 if (isDarkModeEnabled) {
   switchToDarkMode()
 

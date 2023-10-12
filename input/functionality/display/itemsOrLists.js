@@ -1,7 +1,7 @@
 import { updateLocalStorage } from '../list/listStructure.js';
 import { selectDiv } from './../editItemOrList/selection.js';
 
-const container = document.getElementById('list');
+let container = document.getElementById('list');
 
 let listSelect = document.querySelector('#selectList')
 
@@ -37,15 +37,30 @@ function appendItems(item, currentListOfItemsIndex) {
 }
 
 function returnDifferentColorDependingOnType(item) {
+if(document.querySelector('html').className == 'dark'){
   switch (item.type) {
     case 'food':
-      return color.food;
+      return color.dark.food;
     case 'product':
-      return color.product;
+      return color.dark.product;
     case 'regProduct':
-      return color.regProduct;
+      return color.dark.regProduct;
     case 'money':
-      return color.money;
+      return color.dark.money;
+  }
+  }
+  else{
+
+  switch (item.type) {
+    case 'food':
+      return color.light.food;
+    case 'product':
+      return color.light.product;
+    case 'regProduct':
+      return color.light.regProduct;
+    case 'money':
+      return color.light.money;
+  }
 
   }
 }
@@ -61,3 +76,5 @@ function appendLists(list, currentListofListsIndex) {
   }
   listSelect.append(option);
 }
+
+

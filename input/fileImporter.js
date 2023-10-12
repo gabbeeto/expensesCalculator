@@ -2,6 +2,7 @@ document.getElementById(`percentageIncrease`).value = 0;
 
 window.valueToMultiply = 1;
 
+
 // import styles
 import './styling/style.css'
 import './styling/darkmode.css'
