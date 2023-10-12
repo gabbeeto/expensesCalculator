@@ -1,5 +1,16 @@
 /* mobile first 300x440 */
 
+
+@font-face{
+font-family: 'default';
+src: url('./font/oceanicdrift.ttf');
+}
+
+@font-face{
+font-family: 'button';
+src: url('./font/Cyborg\ Punk.ttf');
+}
+
 *{
 padding: 0;
 margin:0;
@@ -36,6 +47,7 @@ display:grid;
 /* individual section */
 
 body{
+font-family: 'default';
 background-color: var(--white);
 color: var(--black);
 transition-property:background-color, color;
@@ -55,7 +67,7 @@ font-size:max(0.7rem,2.8vw);
 }
 
 header button{
-height:90%;
+height:80%;
 }
 
 main{
@@ -95,7 +107,9 @@ color:var(--black);
 border: 2px solid var(--black);
 padding: 8px;
 border-radius:12px;
-transition: background-color, color 0.7s
+transition: background-color, color 0.7s;
+font-family: 'button';
+font-size: clamp(0.5rem , 1vw , 1rem);
 }
 
 /* edit item button */
