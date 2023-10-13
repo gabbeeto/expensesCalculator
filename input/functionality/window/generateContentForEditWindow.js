@@ -48,6 +48,7 @@ function generateContentForDialogForItems() {
             <input value='${item.weekAmount}' type="text" inputmode='numeric' id="weekAmount">
           </section>
         </div>
+        <button type='button' id='delete'>delete</button>
         <button type='button' id='apply'>apply</button>`;
       break;
     case 'product':
@@ -56,6 +57,7 @@ function generateContentForDialogForItems() {
         <input value='${item.name}'type="text" id="name">
         <p>price:</p>
         <input value='${item.price}' type="text" inputmode='decimal' id="price">
+        <button type='button' id='delete'>delete</button>
         <button type='button' id='apply'>apply</button>`;
       break;
     case 'regProduct':
@@ -68,12 +70,14 @@ function generateContentForDialogForItems() {
         <input type="text" inputmode='numeric' id="amountOfRegProducts" value='${item.amountOfRegProducts}' required>
         <p>amount of months per year:</p>
         <input type="text" inputmode='numeric' id="amountPerYear" value='${item.amountPerYear}' required>
+        <button type='button' id='delete'>delete</button>
         <button type='button' id='apply'>apply</button>`;
       break;
     case 'money':
       dialog.innerHTML = `<button class='closeBtn'>close</button>
         <p>price:</p>
         <input value='${item.price}' type="text" inputmode='decimal' id="price">
+        <button type='button' id='delete'>delete</button>
         <button type='button' id='apply'>apply</button>`;
       break;
   }
