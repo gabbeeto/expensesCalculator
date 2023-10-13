@@ -7,6 +7,11 @@ module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   plugins: [new html({template: './input/index.html'})],
+  devServer:{
+    static:{ directory: './output'},
+    port:8080,
+    open:true,
+  },
   output: {
     filename: '[name]-[contenthash].js',
     path: path.resolve(__dirname, 'output'),
