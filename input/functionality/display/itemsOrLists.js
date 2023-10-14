@@ -5,6 +5,8 @@ let container = document.getElementById('list');
 
 let listSelect = document.querySelector('#selectList')
 
+let displayIsNotRunBefore = true;
+
 export function displayList() {
   restartEverything();
   currentList.array.forEach(appendItems)
@@ -12,13 +14,25 @@ export function displayList() {
   updateLocalStorage()
   const calculateSpan = document.querySelector(`#resultContent span`);
   calculateSpan.innerText = '';
+  if (displayIsNotRunBefore) {
+    window.switchToDarkMode = function() {
+      document.querySelector('html').classList.toggle('dark')
+      if (document.querySelector('html').className == 'dark') {
+        document.querySelector('header button').innerText = 'light mode';
+      }
+      else {
+        document.querySelector('header button').innerText = 'dark mode';
+      }
+      displayList()
+    }
+    displayIsNotRunBefore = false;
+  }
 }
 
 function restartEverything() {
   let editButton = document.querySelector('#listContainer div + button');
   editButton.classList.remove('onSelection');
   window.selectedIndex = '';
-
   container.innerHTML = '';
 
   listSelect = document.querySelector('#selectList');
@@ -37,30 +51,30 @@ function appendItems(item, currentListOfItemsIndex) {
 }
 
 function returnDifferentColorDependingOnType(item) {
-if(document.querySelector('html').className == 'dark'){
-  switch (item.type) {
-    case 'food':
-      return color.dark.food;
-    case 'product':
-      return color.dark.product;
-    case 'regProduct':
-      return color.dark.regProduct;
-    case 'money':
-      return color.dark.money;
+  if (document.querySelector('html').className == 'dark') {
+    switch (item.type) {
+      case 'food':
+        return color.dark.food;
+      case 'product':
+        return color.dark.product;
+      case 'regProduct':
+        return color.dark.regProduct;
+      case 'money':
+        return color.dark.money;
+    }
   }
-  }
-  else{
+  else {
 
-  switch (item.type) {
-    case 'food':
-      return color.light.food;
-    case 'product':
-      return color.light.product;
-    case 'regProduct':
-      return color.light.regProduct;
-    case 'money':
-      return color.light.money;
-  }
+    switch (item.type) {
+      case 'food':
+        return color.light.food;
+      case 'product':
+        return color.light.product;
+      case 'regProduct':
+        return color.light.regProduct;
+      case 'money':
+        return color.light.money;
+    }
 
   }
 }
