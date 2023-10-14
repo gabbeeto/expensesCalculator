@@ -4,8 +4,7 @@ const html = require('html-webpack-plugin');
 
 module.exports = {
   entry: './input/fileImporter.js',
-  mode: 'development',
-  devtool: 'inline-source-map',
+  mode: 'production',
   plugins: [new html({template: './input/index.html'})],
   devServer:{
     static:{ directory: './output'},
