@@ -54,6 +54,10 @@ transition-property:background-color, color;
 transition-duration:2s;
 }
 
+input[type='file']{
+font-family: 'default';
+}
+
 header{
 border-bottom:2px solid var(--black)
 }
