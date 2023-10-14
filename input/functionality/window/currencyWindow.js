@@ -11,7 +11,6 @@ async function changeCurrency() {
   let url = new URL(`https://cdn.jsdelivr.net/`)
   
   url.pathname = `gh/fawazahmed0/currency-api@1/latest/currencies/${transformedCurrency}/${originalCurrency}.json`
-  alert(url)
 
   let fetchResponse = await fetch(url)
   let fetchData = await fetchResponse.json()
