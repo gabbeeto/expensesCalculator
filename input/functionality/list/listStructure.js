@@ -17,9 +17,9 @@ else {
     },
     light: {
       food: '#ffe900',
-      product: '#114b5f',
-      regProduct: '#c8a2c8,',
-      money: '#e5fcf5',
+      product: '#214D5C',
+      regProduct: '#c8a2c8',
+      money: '#333736',
     }
   }
 }
