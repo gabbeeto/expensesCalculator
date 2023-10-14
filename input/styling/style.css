@@ -106,6 +106,7 @@ gap: 7px;
 
 }
 
+
 button,input[type='file']::file-selector-button{
 background-color: var(--white);
 color:var(--black);
