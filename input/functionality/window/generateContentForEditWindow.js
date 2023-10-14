@@ -3,6 +3,7 @@ import { transformToNumber } from './../list/addItemsToList.js';
 import { Food, Product, RegProduct, Money } from './../list/listStructure.js';
 import { displayList } from './../display/itemsOrLists.js';
 import { displayError } from './../display/error.js';
+import { deleteProduct } from './delete.js';
 
 const dialog = document.getElementById('editPopUp');
 
@@ -83,6 +84,10 @@ function generateContentForDialogForItems() {
   }
   let applyButton = dialog.querySelector('#apply');
   applyButton.addEventListener('click', applyChangesForItems);
+
+
+  let deleteButton = dialog.querySelector('#delete');
+  deleteButton.addEventListener('click', deleteProduct)
 }
 
 function generateContentForDialogForLists() {
