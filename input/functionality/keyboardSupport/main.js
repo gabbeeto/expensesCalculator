@@ -194,6 +194,9 @@ function checkListAndMoveDown() {
     let maximumNumberPossible = document.querySelectorAll('#selectList option').length - 1;
     if (Number(selectElement.value) < maximumNumberPossible) {
       selectElement.value = `${Number(selectElement.value) + 1}`;
+      window.valueOfSelect = Number(selectElement.value);
+      window.currentList = list[Number(selectElement.value)];
+      displayList();
     }
   }
 }
@@ -209,6 +212,9 @@ function checkListAndMoveUp() {
     let selectElement = document.getElementById('selectList')
     if (Number(selectElement.value) > 0) {
       selectElement.value = Number(selectElement.value) - 1;
+      window.valueOfSelect = Number(selectElement.value);
+      window.currentList = list[Number(selectElement.value)];
+      displayList();
     }
   }
 }
