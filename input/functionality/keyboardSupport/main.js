@@ -1,13 +1,15 @@
 import { calculate } from "../calculate/calculate"
 import { displayError } from "../display/error"
 import { displayContentForType } from "../display/expenseType"
+import { displayList } from "../display/itemsOrLists"
 import { deleteProduct } from "../window/delete"
-import { generateContentAndOpenWindow } from "../window/openWindow"
+import { generateContentAndOpenWindow, generateContentAndOpenWindowForList, openWindow } from "../window/openWindow"
 import { removeClasses } from "./../editItemOrList/selection"
 
 document.addEventListener('keyup', escapeOrDeleteItem)
 
 function escapeOrDeleteItem(event) {
+  // console.log(event)
   try {
     checkDialogs()
     if (event.key == "Escape" && selectedIndex) {
@@ -15,7 +17,10 @@ function escapeOrDeleteItem(event) {
       removeClasses();
     }
     else if (event.key == 'Delete' && selectedIndex) {
-    deleteProduct()
+      deleteProduct()
+    }
+    else if (event.key == 'Tab') {
+      generateContentAndOpenWindowForList();
     }
   }
   catch (error) {
@@ -38,7 +43,6 @@ function checkDialogs() {
 document.addEventListener('keypress', editItem)
 
 function editItem(event) {
-  console.log(event)
   try {
     checkDialogs()
     detectKeyAndPerformAction(event.key)
@@ -67,13 +71,19 @@ function detectKeyAndPerformAction(key) {
         checkTypeOfCalculatorAndMoveDown()
         break;
       case "h":
-      case "H":
         checkTypeOfItemAndMoveUp()
         break;
-      case 'l':
-      case 'L':
-        checkTypeOfItemAndMoveDown()
+      case "H":
+        checkListAndMoveUp();
         break;
+      case 'l':
+        checkTypeOfItemAndMoveDown();
+        break;
+      case 'L':
+        checkListAndMoveDown();
+        break;
+      case '`':
+        openWindow(document.getElementById('addNewListPopUp'))
     }
   }
   catch (error) {
@@ -148,6 +158,7 @@ function checkTypeOfItemAndMoveUp() {
 }
 
 
+
 function checkTypeOfItemAndMoveDown() {
   let somethingBeingFocusedDetected = document.querySelector('input:focus');
   if (somethingBeingFocusedDetected) {
@@ -171,3 +182,35 @@ function checkTypeOfItemAndMoveDown() {
     }
   }
 }
+
+
+function checkListAndMoveDown() {
+  let somethingBeingFocusedDetected = document.querySelector('input:focus');
+  if (somethingBeingFocusedDetected) {
+    console.warn(`it doesn't work because something is being detected`)
+  }
+  else {
+    let selectElement = document.getElementById('selectList')
+    let maximumNumberPossible = document.querySelectorAll('#selectList option').length - 1;
+    if (Number(selectElement.value) < maximumNumberPossible) {
+      selectElement.value = `${Number(selectElement.value) + 1}`;
+    }
+  }
+}
+
+
+
+function checkListAndMoveUp() {
+  let somethingBeingFocusedDetected = document.querySelector('input:focus');
+  if (somethingBeingFocusedDetected) {
+    console.warn(`it doesn't work because something is being detected`)
+  }
+  else {
+    let selectElement = document.getElementById('selectList')
+    if (Number(selectElement.value) > 0) {
+      selectElement.value = Number(selectElement.value) - 1;
+    }
+  }
+}
+
+

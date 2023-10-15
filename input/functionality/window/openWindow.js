@@ -27,7 +27,7 @@ export function generateContentAndOpenWindow() {
 }
 
 editCurrentListButton.addEventListener('click', generateContentAndOpenWindowForList)
-function generateContentAndOpenWindowForList() {
+export function generateContentAndOpenWindowForList() {
   try {
     generateContentForListWindow()
     openWindow(editDialog)
@@ -41,7 +41,7 @@ function generateContentAndOpenWindowForList() {
 addNewListButton.addEventListener('click', () => openWindow(addNewListDialog));
 currencyButton.addEventListener('click', () => openWindow(currencyDialog));
 
-function openWindow(dialog) {
+export function openWindow(dialog) {
   dialog.showModal()
 }
 
