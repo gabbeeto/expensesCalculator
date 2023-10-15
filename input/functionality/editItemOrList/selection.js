@@ -16,7 +16,7 @@ function selectParent(event) {
   editItemButton.classList.add('onSelection')
   parent.classList.add('selectedItem');
 }
-function removeClasses() {
+export function removeClasses() {
   let onSelectionClass = document.querySelector('.onSelection')
   if(onSelectionClass){
   onSelectionClass.classList.remove('onSelection')

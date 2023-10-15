@@ -16,7 +16,7 @@ const currencyDialog = document.getElementById('currencyPopUp');
 
 editButton.addEventListener('click', generateContentAndOpenWindow);
 
-function generateContentAndOpenWindow() {
+export function generateContentAndOpenWindow() {
   try {
     generateContentForWindow()
     openWindow(editDialog)

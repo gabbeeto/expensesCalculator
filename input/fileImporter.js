@@ -8,13 +8,13 @@ window.valueToMultiply = 1;
 
 // import styles
 
-import './styling/style.css'
-import './styling/darkmode.css'
-import './styling/darkmode.js'
-import './styling/calculationType.css'
-import './styling/list.css'
-import './styling/desktopSupport.css'
-import './styling/popup.css'
+import './styling/style.css';
+import './styling/darkmode.css';
+import './styling/darkmode.js';
+import './styling/calculationType.css';
+import './styling/list.css';
+import './styling/desktopSupport.css';
+import './styling/popup.css';
 
 
 
@@ -35,4 +35,6 @@ import './functionality/file/uploadFile.js';
 import './functionality/inputCheck.js';
 
 
+import './functionality/keyboardSupport/main.js';
+import './functionality/keyboardSupport/window.js';
 
