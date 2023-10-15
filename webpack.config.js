@@ -8,7 +8,7 @@ module.exports = {
   plugins: [new html({template: './input/index.html'})],
   devServer:{
     static:{ directory: './output'},
-    port:8080,
+    port:9080,
     open:true,
   },
   output: {

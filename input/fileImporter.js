@@ -36,5 +36,4 @@ import './functionality/inputCheck.js';
 
 
 import './functionality/keyboardSupport/main.js';
-import './functionality/keyboardSupport/window.js';
 
