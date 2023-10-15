@@ -1,16 +1,21 @@
 import { calculate } from "../calculate/calculate"
 import { displayError } from "../display/error"
+import { displayContentForType } from "../display/expenseType"
+import { deleteProduct } from "../window/delete"
 import { generateContentAndOpenWindow } from "../window/openWindow"
 import { removeClasses } from "./../editItemOrList/selection"
 
-document.addEventListener('keyup', escape)
+document.addEventListener('keyup', escapeOrDeleteItem)
 
-function escape(event) {
+function escapeOrDeleteItem(event) {
   try {
     checkDialogs()
-    if (event.key == "Escape") {
+    if (event.key == "Escape" && selectedIndex) {
       selectedIndex = '';
       removeClasses();
+    }
+    else if (event.key == 'Delete' && selectedIndex) {
+    deleteProduct()
     }
   }
   catch (error) {
@@ -61,6 +66,14 @@ function detectKeyAndPerformAction(key) {
       case 'K':
         checkTypeOfCalculatorAndMoveDown()
         break;
+      case "h":
+      case "H":
+        checkTypeOfItemAndMoveUp()
+        break;
+      case 'l':
+      case 'L':
+        checkTypeOfItemAndMoveDown()
+        break;
     }
   }
   catch (error) {
@@ -81,8 +94,6 @@ function checkSelectedIndexToPerformAction() {
 function checkTypeOfCalculatorAndMoveUp() {
   let selectElement = document.querySelector('#typeContainer select')
   switch (selectElement.value) {
-    case 'yearly':
-      break;
     case 'monthly':
       selectElement.value = 'yearly';
       break;
@@ -108,5 +119,55 @@ function checkTypeOfCalculatorAndMoveDown() {
     case 'weekly':
       selectElement.value = 'daily';
       break;
+  }
+}
+
+
+function checkTypeOfItemAndMoveUp() {
+  let somethingBeingFocusedDetected = document.querySelector('input:focus');
+  if (somethingBeingFocusedDetected) {
+    console.warn(`it doesn't work because something is being detected`)
+  }
+  else {
+    let selectElement = document.querySelector('article select')
+    switch (selectElement.value) {
+      case 'regProduct':
+        selectElement.value = 'food';
+        displayContentForType(selectElement.value)
+        break;
+      case 'product':
+        selectElement.value = 'regProduct';
+        displayContentForType(selectElement.value)
+        break;
+      case 'money':
+        selectElement.value = 'product';
+        displayContentForType(selectElement.value)
+        break;
+    }
+  }
+}
+
+
+function checkTypeOfItemAndMoveDown() {
+  let somethingBeingFocusedDetected = document.querySelector('input:focus');
+  if (somethingBeingFocusedDetected) {
+    console.warn(`it doesn't work because something is being detected`)
+  }
+  else {
+    let selectElement = document.querySelector('article select')
+    switch (selectElement.value) {
+      case 'food':
+        selectElement.value = 'regProduct';
+        displayContentForType(selectElement.value)
+        break;
+      case 'regProduct':
+        selectElement.value = 'product';
+        displayContentForType(selectElement.value)
+        break;
+      case 'product':
+        selectElement.value = 'money';
+        displayContentForType(selectElement.value)
+        break;
+    }
   }
 }
