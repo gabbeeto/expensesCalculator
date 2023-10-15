@@ -1,8 +1,8 @@
+import { calculate } from "../calculate/calculate"
 import { displayError } from "../display/error"
 import { generateContentAndOpenWindow } from "../window/openWindow"
 import { removeClasses } from "./../editItemOrList/selection"
 
-document.addEventListener('keypress', editItem)
 document.addEventListener('keyup', escape)
 
 function escape(event) {
@@ -18,6 +18,20 @@ function escape(event) {
   }
 }
 
+
+function checkDialogs() {
+  for (let dialog of document.querySelectorAll('dialog')) {
+    if (dialog.open) {
+      throw new Error(`dialog with id:'${dialog.id}' is open!`);
+    }
+  }
+}
+
+
+
+
+document.addEventListener('keypress', editItem)
+
 function editItem(event) {
   console.log(event)
   try {
@@ -30,13 +44,6 @@ function editItem(event) {
 }
 
 
-function checkDialogs() {
-  for (let dialog of document.querySelectorAll('dialog')) {
-    if (dialog.open) {
-      throw new Error(`dialog with id:'${dialog.id}' is open!`);
-    }
-  }
-}
 
 
 function detectKeyAndPerformAction(key) {
@@ -45,8 +52,15 @@ function detectKeyAndPerformAction(key) {
     switch (key) {
       case "Enter":
         checkSelectedIndexToPerformAction();
-        break
-
+        break;
+      case "j":
+      case "J":
+        checkTypeOfCalculatorAndMoveUp()
+        break;
+      case 'k':
+      case 'K':
+        checkTypeOfCalculatorAndMoveDown()
+        break;
     }
   }
   catch (error) {
@@ -58,6 +72,41 @@ function checkSelectedIndexToPerformAction() {
   if (window.selectedIndex) {
     generateContentAndOpenWindow()
   }
+  else {
+    calculate()
+  }
+
+}
+
+function checkTypeOfCalculatorAndMoveUp() {
+  let selectElement = document.querySelector('#typeContainer select')
+  switch (selectElement.value) {
+    case 'yearly':
+      break;
+    case 'monthly':
+      selectElement.value = 'yearly';
+      break;
+    case 'weekly':
+      selectElement.value = 'monthly';
+      break;
+    case 'daily':
+      selectElement.value = 'weekly';
+      break;
+  }
+}
 
 
+function checkTypeOfCalculatorAndMoveDown() {
+  let selectElement = document.querySelector('#typeContainer select')
+  switch (selectElement.value) {
+    case 'yearly':
+      selectElement.value = 'monthly';
+      break;
+    case 'monthly':
+      selectElement.value = 'weekly';
+      break;
+    case 'weekly':
+      selectElement.value = 'daily';
+      break;
+  }
 }

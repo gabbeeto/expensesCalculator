@@ -8,7 +8,7 @@ calculateButton.addEventListener('click', calculate)
 
 
 
-function calculate() {
+export function calculate() {
   let indexo = 0
   let result = currentList.array.reduce((accumulator, currentItem) => {
     indexo += 1;
